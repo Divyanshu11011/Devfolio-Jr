@@ -8,7 +8,7 @@ import Discover from './pages/Discover';
 import Footer from './components/Footer/Footer';
 
 function App() {
-    const [selectedOption, setSelectedOption] = useState('discover');
+    const [selectedOption, setSelectedOption] = useState();
 
     const handleOptionChange = (option) => {
         setSelectedOption(option);
