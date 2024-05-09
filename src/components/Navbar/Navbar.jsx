@@ -1,42 +1,49 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Hackathon from '../../pages/Hackathons';
+import Builders from '../../pages/Builders';
+import Discover from '../../pages/Discover';
 
 const NavBar = () => {
+    const [selectedOption, setSelectedOption] = useState('discover');
+
+    // Function to handle option change
+    const handleOptionChange = (option) => {
+        setSelectedOption(option);
+    };
+
+    // Function to render selected component based on option
+    const renderComponent = () => {
+        switch (selectedOption) {
+            case 'discover':
+                return <Discover />;
+            case 'hackathons':
+                return <Hackathon />;
+            case 'builders':
+                return <Builders />;
+            default:
+                return null;
+        }
+    };
+
     return (
         <div>
             <div direction="column" style={{ boxSizing: 'border-box', display: 'flex', flexDirection: 'column', WebkitBoxAlign: 'center', alignItems: 'center', backgroundColor: 'rgb(255, 255, 255)', paddingTop: '12px', paddingBottom: '12px' }}>
                 <nav style={{ boxSizing: 'border-box', display: 'flex' }}>
                     <ul role="tablist" style={{ zLabel: 2, zHighlight: 1, padding: '0px', margin: '0px', display: 'flex', flexWrap: 'nowrap', width: '100%', background: 'rgb(240, 244, 255) none repeat scroll 0% 0% / auto padding-box border-box', borderRadius: '8px', listStyleType: 'none', boxSizing: 'border-box' }}>
-                        <li style={{ transform: 'none', padding: '4px', flex: '1 1 0%', boxSizing: 'border-box' }}><button type="button" role="tab" aria-selected="false" data-selected="false" style={{ color: 'rgb(55, 112, 255)', position: 'relative', margin: '0px', padding: '12px 16px', width: '100%', background: 'rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box', borderRadius: '4px', border: '0px none rgb(55, 112, 255)', cursor: 'pointer', willChange: 'color', transition: 'color 0.3s ease-in 0s', boxSizing: 'border-box', appearance: 'button', textTransform: 'none', overflow: 'visible', fontFamily: '"Nunito Sans", sans-serif', fontSize: '16px', lineHeight: '18.4px' }}>
-                            <p style={{ position: 'relative', zIndex: 2, whiteSpace: 'nowrap', color: 'rgb(55, 112, 255)', boxSizing: 'border-box', fontSize: '12px', lineHeight: '16px', letterSpacing: '1.44px', fontWeight: 700, fontFamily: 'Montserrat, sans-serif', margin: '0px', textTransform: 'uppercase' }}>discover</p>
+                        <li style={{ transform: 'none', padding: '4px', flex: '1 1 0%', boxSizing: 'border-box' }}><button type="button" role="tab" aria-selected={selectedOption === 'discover'} data-selected={selectedOption === 'discover'} onClick={() => handleOptionChange('discover')} style={{ color: selectedOption === 'discover' ? 'rgb(255, 255, 255)' : 'rgb(55, 112, 255)', position: 'relative', margin: '0px', padding: '12px 16px', width: '100%', background: selectedOption === 'discover' ? 'rgb(55, 112, 255) none repeat scroll 0% 0% / auto padding-box border-box' : 'rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box', borderRadius: '4px', border: '0px none rgb(55, 112, 255)', cursor: 'pointer', willChange: 'color', transition: 'color 0.3s ease-in 0s', boxSizing: 'border-box', appearance: 'button', textTransform: 'none', overflow: 'visible', fontFamily: '"Nunito Sans", sans-serif', fontSize: '16px', lineHeight: '18.4px' }}>
+                            <p style={{ position: 'relative', zIndex: 2, whiteSpace: 'nowrap', color: selectedOption === 'discover' ? 'rgb(255, 255, 255)' : 'rgb(55, 112, 255)', boxSizing: 'border-box', fontSize: '12px', lineHeight: '16px', letterSpacing: '1.44px', fontWeight: 700, fontFamily: 'Montserrat, sans-serif', margin: '0px', textTransform: 'uppercase' }}>Discover</p>
                         </button></li>
-                        <li style={{ transform: 'none', padding: '4px', flex: '1 1 0%', boxSizing: 'border-box' }}><button type="button" role="tab" aria-selected="true" data-selected="true" style={{ color: 'rgb(255, 255, 255)', position: 'relative', margin: '0px', padding: '12px 16px', width: '100%', background: 'rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box', borderRadius: '4px', border: '0px none rgb(255, 255, 255)', cursor: 'pointer', willChange: 'color', transition: 'color 0.3s ease-in 0s', boxSizing: 'border-box', appearance: 'button', textTransform: 'none', overflow: 'visible', fontFamily: '"Nunito Sans", sans-serif', fontSize: '16px', lineHeight: '18.4px' }}>
-                            <div style={{ visibility: 'visible', opacity: 1, transformOrigin: '67.9187px 20px', position: 'absolute', inset: '0px', background: 'rgb(55, 112, 255) none repeat scroll 0% 0% / auto padding-box border-box', boxShadow: 'rgba(3, 0, 92, 0.12) 0px 1px 3px 0px, rgba(3, 0, 92, 0.07) 0px 4px 11px 0px', borderRadius: '4px', zIndex: 1, boxSizing: 'border-box' }}></div>
-                            <p style={{ position: 'relative', zIndex: 2, whiteSpace: 'nowrap', color: 'rgb(255, 255, 255)', boxSizing: 'border-box', fontSize: '12px', lineHeight: '16px', letterSpacing: '1.44px', fontWeight: 700, fontFamily: 'Montserrat, sans-serif', margin: '0px', textTransform: 'uppercase' }}>hackathons</p>
+                        <li style={{ transform: 'none', padding: '4px', flex: '1 1 0%', boxSizing: 'border-box' }}><button type="button" role="tab" aria-selected={selectedOption === 'hackathons'} data-selected={selectedOption === 'hackathons'} onClick={() => handleOptionChange('hackathons')} style={{ color: selectedOption === 'hackathons' ? 'rgb(255, 255, 255)' : 'rgb(55, 112, 255)', position: 'relative', margin: '0px', padding: '12px 16px', width: '100%', background: selectedOption === 'hackathons' ? 'rgb(55, 112, 255) none repeat scroll 0% 0% / auto padding-box border-box' : 'rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box', borderRadius: '4px', border: '0px none rgb(55, 112, 255)', cursor: 'pointer', willChange: 'color', transition: 'color 0.3s ease-in 0s', boxSizing: 'border-box', appearance: 'button', textTransform: 'none', overflow: 'visible', fontFamily: '"Nunito Sans", sans-serif', fontSize: '16px', lineHeight: '18.4px' }}>
+                            <p style={{ position: 'relative', zIndex: 2, whiteSpace: 'nowrap', color: selectedOption === 'hackathons' ? 'rgb(255, 255, 255)' : 'rgb(55, 112, 255)', boxSizing: 'border-box', fontSize: '12px', lineHeight: '16px', letterSpacing: '1.44px', fontWeight: 700, fontFamily: 'Montserrat, sans-serif', margin: '0px', textTransform: 'uppercase' }}>Hackathons</p>
                         </button></li>
-                        <li style={{ transform: 'none', padding: '4px', flex: '1 1 0%', boxSizing: 'border-box' }}><button type="button" role="tab" aria-selected="false" data-selected="false" style={{ color: 'rgb(55, 112, 255)', position: 'relative', margin: '0px', padding: '12px 16px', width: '100%', background: 'rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box', borderRadius: '4px', border: '0px none rgb(55, 112, 255)', cursor: 'pointer', willChange: 'color', transition: 'color 0.3s ease-in 0s', boxSizing: 'border-box', appearance: 'button', textTransform: 'none', overflow: 'visible', fontFamily: '"Nunito Sans", sans-serif', fontSize: '16px', lineHeight: '18.4px' }}>
-                            <p style={{ position: 'relative', zIndex: 2, whiteSpace: 'nowrap', color: 'rgb(55, 112, 255)', boxSizing: 'border-box', fontSize: '12px', lineHeight: '16px', letterSpacing: '1.44px', fontWeight: 700, fontFamily: 'Montserrat, sans-serif', margin: '0px', textTransform: 'uppercase' }}>builders</p>
+                        <li style={{ transform: 'none', padding: '4px', flex: '1 1 0%', boxSizing: 'border-box' }}><button type="button" role="tab" aria-selected={selectedOption === 'builders'} data-selected={selectedOption === 'builders'} onClick={() => handleOptionChange('builders')} style={{ color: selectedOption === 'builders' ? 'rgb(255, 255, 255)' : 'rgb(55, 112, 255)', position: 'relative', margin: '0px', padding: '12px 16px', width: '100%', background: selectedOption === 'builders' ? 'rgb(55, 112, 255) none repeat scroll 0% 0% / auto padding-box border-box' : 'rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box', borderRadius: '4px', border: '0px none rgb(55, 112, 255)', cursor: 'pointer', willChange: 'color', transition: 'color 0.3s ease-in 0s', boxSizing: 'border-box', appearance: 'button', textTransform: 'none', overflow: 'visible', fontFamily: '"Nunito Sans", sans-serif', fontSize: '16px', lineHeight: '18.4px' }}>
+                            <p style={{ position: 'relative', zIndex: 2, whiteSpace: 'nowrap', color: selectedOption === 'builders' ? 'rgb(255, 255, 255)' : 'rgb(55, 112, 255)', boxSizing: 'border-box', fontSize: '12px', lineHeight: '16px', letterSpacing: '1.44px', fontWeight: 700, fontFamily: 'Montserrat, sans-serif', margin: '0px', textTransform: 'uppercase' }}>Builders</p>
                         </button></li>
                     </ul>
-                    <ul style={{zLabel: 2, zHighlight: 1, width: '100%', padding: '0px', margin: '0px', display: 'none', background: 'rgb(240, 244, 255) none repeat scroll 0% 0% / auto padding-box border-box', borderRadius: '8px 0px 0px 8px', listStyleType: 'none', boxSizing: 'border-box'}}>
-                    <li data-selected="true" style={{ padding: '4px', width: '100%', boxSizing: 'border-box' }}><button type="button" data-selected="true" style={{ color: 'rgb(255, 255, 255)', position: 'relative', margin: '0px', padding: '12px 16px', width: '100%', background: 'rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box', borderRadius: '4px', border: '0px none rgb(255, 255, 255)', cursor: 'pointer', willChange: 'color', transition: 'color 0.3s ease-in 0s', boxSizing: 'border-box', appearance: 'button', textTransform: 'none', overflow: 'visible', fontFamily: '"Nunito Sans", sans-serif', fontSize: '16px', lineHeight: '18.4px' }}>
-                        <div style={{ transform: 'none', visibility: 'visible', opacity: 1, transformOrigin: '50% 50%', position: 'absolute', inset: '0px', background: 'rgb(55, 112, 255) none repeat scroll 0% 0% / auto padding-box border-box', boxShadow: 'rgba(3, 0, 92, 0.12) 0px 1px 3px 0px, rgba(3, 0, 92, 0.07) 0px 4px 11px 0px', borderRadius: '4px', zIndex: 1, boxSizing: 'border-box' }}></div>
-                        <p style={{ fontSize: '12px', lineHeight: '16px', letterSpacing: '1.44px', fontWeight: 700, fontFamily: 'Montserrat, sans-serif', color: 'rgb(255, 255, 255)', margin: '0px', textTransform: 'uppercase', position: 'relative', zIndex: 2, whiteSpace: 'nowrap', boxSizing: 'border-box' }}>hackathons</p>
-                    </button></li>
-                    <li data-selected="false" style={{ display: 'none', padding: '4px', width: '100%', boxSizing: 'border-box' }}><button type="button" data-selected="false" style={{ color: 'rgb(55, 112, 255)', position: 'relative', margin: '0px', padding: '12px 16px', width: '100%', background: 'rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box', borderRadius: '4px', border: '0px none rgb(55, 112, 255)', cursor: 'pointer', willChange: 'color', transition: 'color 0.3s ease-in 0s', boxSizing: 'border-box', appearance: 'button', textTransform: 'none', overflow: 'visible', fontFamily: '"Nunito Sans", sans-serif', fontSize: '16px', lineHeight: '18.4px' }}>
-                        <p style={{ fontSize: '12px', lineHeight: '16px', letterSpacing: '1.44px', fontWeight: 700, fontFamily: 'Montserrat, sans-serif', color: 'rgb(55, 112, 255)', margin: '0px', textTransform: 'uppercase', position: 'relative', zIndex: 2, whiteSpace: 'nowrap', boxSizing: 'border-box' }}>discover</p>
-                    </button></li>
-                    <li data-selected="false" style={{ display: 'none', padding: '4px', width: '100%', boxSizing: 'border-box' }}><button type="button" data-selected="false" style={{ color: 'rgb(55, 112, 255)', position: 'relative', margin: '0px', padding: '12px 16px', width: '100%', background: 'rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box', borderRadius: '4px', border: '0px none rgb(55, 112, 255)', cursor: 'pointer', willChange: 'color', transition: 'color 0.3s ease-in 0s', boxSizing: 'border-box', appearance: 'button', textTransform: 'none', overflow: 'visible', fontFamily: '"Nunito Sans", sans-serif', fontSize: '16px', lineHeight: '18.4px' }}>
-                        <p style={{ fontSize: '12px', lineHeight: '16px', letterSpacing: '1.44px', fontWeight: 700, fontFamily: 'Montserrat, sans-serif', color: 'rgb(55, 112, 255)', margin: '0px', textTransform: 'uppercase', position: 'relative', zIndex: 2, whiteSpace: 'nowrap', boxSizing: 'border-box' }}>builders</p>
-                    </button></li>
-                </ul>
-                <div style={{ backgroundColor: 'rgb(240, 244, 255)', borderRadius: '0px 8px 8px 0px', marginRight: '12px', display: 'none', boxSizing: 'border-box' }}><button style={{ margin: '4px 4px 4px 0px', padding: '8px', border: '0px none rgb(0, 0, 0)', backgroundColor: 'rgb(210, 224, 255)', borderRadius: '4px', lineHeight: '0px', cursor: 'pointer', boxSizing: 'border-box', appearance: 'button', textTransform: 'none', overflow: 'visible', fontFamily: '"Nunito Sans", sans-serif', fontSize: '16px' }}>
-                    <div name="chevron-down" color="blue-4" style={{ transition: 'transform 0.2s ease-out 0s', transform: 'none', boxSizing: 'border-box', display: 'inline-block', height: '24px', width: '24px' }}><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style={{ boxSizing: 'border-box', height: '24px', width: '24px', color: 'rgb(55, 112, 255)' }}>
-                        <path d="M6 9l6 6 6-6" style={{ boxSizing: 'border-box' }}></path>
-                    </svg></div>
-                </button></div>
-            </nav>
-        </div >
-    </div >
+                </nav>
+            </div>
+            {renderComponent()}
+        </div>
     );
 }
 
