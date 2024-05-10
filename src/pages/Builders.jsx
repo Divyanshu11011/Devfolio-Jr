@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState ,useEffect} from "react";
 import SearchBox from "../SearchBar/SearchBox";
 
 export default function Builders () {
@@ -11,6 +11,20 @@ export default function Builders () {
     const handleCloseSearch = () => {
         setIsSearchOpen(false); // Close the search box
     };
+
+    const handleKeyDown = (event) => {
+      event.preventDefault(); // Prevent default browser behavior
+      if (event.ctrlKey && event.key === 'k') {
+          setIsSearchOpen(true); // Open the search box when Ctrl + K is pressed
+      }
+  };
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+        window.removeEventListener('keydown', handleKeyDown);
+    };
+}, []);
 
 
  
