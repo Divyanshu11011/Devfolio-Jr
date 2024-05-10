@@ -1,6 +1,7 @@
 import React from 'react';
-import Home from '../../pages/Home';
+
 const Header = () => {
+    
 
     
   return (
@@ -38,12 +39,14 @@ const Header = () => {
                             </a></div>
                         <div style={{boxSizing: 'border-box', display: 'flex', padding: '0px 0px 0px 32px', width: '100%'}}>
                             <ul style={{boxSizing: 'border-box', padding: '0px', margin: '0px', listStyleType: 'none', display: 'flex'}}>
-                                <li style={{boxSizing: 'border-box'}}><a href="" style={{textDecoration: 'none solid rgb(142, 152, 156)', boxSizing: 'border-box', backgroundColor: 'rgba(0, 0, 0, 0)', border: '0px none rgb(142, 152, 156)', cursor: 'pointer', padding: '0px', color: 'rgb(142, 152, 156)', fontFamily: '"Nunito Sans", sans-serif', fontSize: '16px', fontWeight: 700, lineHeight: '24px'}}>Home</a></li>
-                                <li style={{boxSizing: 'border-box', marginLeft: '16px'}}><a href="https://devfolio.co/blog" style={{textDecoration: 'none solid rgb(142, 152, 156)', boxSizing: 'border-box', backgroundColor: 'rgba(0, 0, 0, 0)', border: '0px none rgb(142, 152, 156)', cursor: 'pointer', padding: '0px', color: 'rgb(142, 152, 156)', fontFamily: '"Nunito Sans", sans-serif', fontSize: '16px', fontWeight: 700, lineHeight: '24px'}}>Blog</a></li>
-                            </ul>
+                                <li style={{boxSizing: 'border-box'}}><a href="https://portfolio-neon-zeta-31.vercel.app/" target="_blank" style={{textDecoration: 'none solid rgb(142, 152, 156)', boxSizing: 'border-box', backgroundColor: 'rgba(0, 0, 0, 0)', border: '0px none rgb(142, 152, 156)', cursor: 'pointer', padding: '5px', color: 'rgb(142, 152, 156)', fontFamily: '"Nunito Sans", sans-serif', fontSize: '16px', fontWeight: 700, lineHeight: '24px'}}>Portefeuille</a></li>
+                                <li style={{boxSizing: 'border-box'}}><a href="https://auth.geeksforgeeks.org/user/divyanshu1072be21/articles/" target="_blank" style={{textDecoration: 'none solid rgb(142, 152, 156)', boxSizing: 'border-box', backgroundColor: 'rgba(0, 0, 0, 0)', border: '0px none rgb(142, 152, 156)', cursor: 'pointer', padding: '5px', color: 'rgb(142, 152, 156)', fontFamily: '"Nunito Sans", sans-serif', fontSize: '16px', fontWeight: 700, lineHeight: '24px'}}>Articles</a></li>
+                               
+                                 </ul>
                         </div>
                         <div style={{display: 'none', WebkitBoxFlex: 1, flexGrow: 1, flexBasis: '0px', WebkitBoxPack: 'end', justifyContent: 'flex-end', boxSizing: 'border-box'}}>
-                            <div style={{position: 'relative', boxSizing: 'border-box'}}><button type="button" aria-haspopup="menu" data-state="closed" style={{padding: '0px', borderRadius: '50%', outline: 'rgb(0, 0, 0) none 0px', boxSizing: 'border-box', border: '0px none rgb(0, 0, 0)', height: '40px', width: '40px', overflow: 'hidden', cursor: 'pointer', display: 'flex', WebkitBoxAlign: 'center', alignItems: 'center', WebkitBoxPack: 'center', justifyContent: 'center', marginTop: '4px', appearance: 'button', textTransform: 'none', fontFamily: '"Nunito Sans", sans-serif', fontSize: '16px', lineHeight: '18.4px', margin: '4px 0px 0px'}}>
+                            <div style={{position: 'relative', boxSizing: 'border-box'}}>
+                                <button type="button" aria-haspopup="menu" data-state="closed" style={{padding: '0px', borderRadius: '50%', outline: 'rgb(0, 0, 0) none 0px', boxSizing: 'border-box', border: '0px none rgb(0, 0, 0)', height: '40px', width: '40px', overflow: 'hidden', cursor: 'pointer', display: 'flex', WebkitBoxAlign: 'center', alignItems: 'center', WebkitBoxPack: 'center', justifyContent: 'center', marginTop: '4px', appearance: 'button', textTransform: 'none', fontFamily: '"Nunito Sans", sans-serif', fontSize: '16px', lineHeight: '18.4px', margin: '4px 0px 0px'}}>
                                     <div name="bell" color="grey-6" style={{display: 'block', height: '24px', width: '24px', boxSizing: 'border-box'}}><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{height: '24px', width: '24px', color: 'rgb(142, 152, 156)', boxSizing: 'border-box'}}>
                                             <path d="M18 8A6 6 0 106 8c0 7-3 9-3 9h18s-3-2-3-9zM13.73 21a1.999 1.999 0 01-3.46 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style={{boxSizing: 'border-box'}}></path>
                                         </svg></div>
