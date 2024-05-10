@@ -13,7 +13,7 @@ export default function Builders () {
     };
 
     const handleKeyDown = (event) => {
-      if (event.ctrlKey && event.key === 'k') {
+      if ((event.ctrlKey || event.metaKey) && event.key === 'k') {
           event.preventDefault(); // Prevent default browser behavior only for Ctrl + K
           setIsSearchOpen(true); // Open the search box when Ctrl + K is pressed
       }
