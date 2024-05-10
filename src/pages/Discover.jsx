@@ -1,21 +1,93 @@
-import React from "react";
+import React  , {useState} from "react";
 import meetup1 from "../Spring.jpg"
+import SearchBox from "../SearchBar/SearchBox";
 
 export default function Discover() {
+    const [isSearchOpen, setIsSearchOpen] = useState(false);
+
+    const handleSearchClick = () => {
+        setIsSearchOpen(true); // Open the search box
+    };
+
+    const handleCloseSearch = () => {
+        setIsSearchOpen(false); // Close the search box
+    };
+
+
+ 
+
     return (
         <>
-            <div style={{ padding: '0px 132px', gridTemplateColumns: '76px 76px 76px 76px 76px 76px 76px 76px 76px 76px 76px 76px', display: 'grid', width: '100%', gap: '40px 24px', WebkitBoxPack: 'center', justifyContent: 'center', marginTop: '32px', marginBottom: '32px', boxSizing: 'border-box' }}>
-                <div style={{ gridColumn: '1 / -1', boxSizing: 'border-box' }}>
-                    <div style={{ display: 'flex', gap: '16px', boxSizing: 'border-box' }}>
-                        <div style={{ padding: '16px', width: '100%', paddingy: '24px', paddingx: '40px', boxSizing: 'border-box', position: 'relative', height: '89.6px', borderRadius: '16px', backgroundColor: 'rgb(255, 255, 255)', boxShadow: 'rgba(0, 0, 0, 0.08) 0px 1px 4px 0px' }}>
-                            <div style={{ display: 'flex', gap: '16px', WebkitBoxAlign: 'center', alignItems: 'center', boxSizing: 'border-box' }}><button style={{ cursor: 'pointer', textAlign: 'left', WebkitBoxAlign: 'center', alignItems: 'center', display: 'flex', borderRadius: '6px', padding: '16px', width: '100%', border: '0.8px solid rgb(208, 217, 218)', backgroundColor: 'rgb(245, 247, 247)', color: 'rgb(142, 152, 156)', fontFamily: '"Nunito Sans", sans-serif', fontSize: '18px', fontWeight: 600, lineHeight: '24px', outline: 'rgb(142, 152, 156) none 0px', transition: 'all 0.16s ease-in 0s', boxSizing: 'border-box', appearance: 'button', textTransform: 'none', overflow: 'visible', margin: '0px' }}>
-                                <div name="search" color="grey-5" style={{ display: 'block', height: '24px', width: '24px', marginRight: '8px', boxSizing: 'border-box' }}><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" style={{ height: '24px', width: '24px', color: 'rgb(180, 190, 192)', boxSizing: 'border-box' }}>
-                                    <circle cx={11} cy={11} r={8} style={{ boxSizing: 'border-box' }} />
-                                    <path d="M21 21l-4.35-4.35" style={{ boxSizing: 'border-box' }} />
-                                </svg></div>Type to begin search, or use the global shortcut
-                            </button>
+      <div style={{
+        padding: '0px 132px',
+        
+        display: 'grid',
+        gridTemplateColumns: 'repeat(12, 1fr)',
+        marginTop: '32px',
+        width: '100%',
+        gap: '40px 24px',
+        justifyContent: 'center',
+        marginBottom: '32px',
+        boxSizing: 'border-box'
+    }}>
+<div style={{
+                gridColumn: '1 / -1',
+                boxSizing: 'border-box'
+            }}>
+                <div style={{
+                    display: 'flex',
+                    gap: '16px',
+                    boxSizing: 'border-box'
+                }}>
+                    <div style={{
+                        padding: '16px',
+                        width: '100%',
+                        position: 'relative',
+                        height: '89.6px',
+                        borderRadius: '16px',
+                        backgroundColor: 'rgb(255, 255, 255)',
+                        boxShadow: 'rgba(0, 0, 0, 0.08) 0px 1px 4px 0px',
+                        boxSizing: 'border-box'
+                    }}>
+                       <div style={{
+                            display: 'flex',
+                            gap: '600px',
+                            alignItems: 'center',
+                            boxSizing: 'border-box'
+                        }}>
+              <div style={{ position: "relative" }}>
+                                <button onClick={handleSearchClick} style={{
+                                    cursor: "pointer",
+                                    textAlign: "left",
+                                    display: "flex",
+                                    borderRadius: "6px",
+                                    padding: "16px",
+                                    width: "230%",
+                                    border: "0.8px solid rgb(208, 217, 218)",
+                                    backgroundColor: "rgb(245, 247, 247)",
+                                    color: "rgb(142, 152, 156)",
+                                    fontFamily: '"Nunito Sans", sans-serif',
+                                    fontSize: "18px",
+                                    fontWeight: 600,
+                                    lineHeight: "24px",
+                                    outline: "none",
+                                    transition: "all 0.16s ease-in 0s",
+                                    textTransform: "none",
+                                    overflow: "visible",
+                                    margin: "0px",
+                                    position: "relative",
+                                    zIndex: 1
+                                }}>
+                                    Type to begin search, or use the global shortcut
+                                </button>
+                                {isSearchOpen && (
+                                    <div style={{ position: "fixed", top: 0, left: 0, right: 0, bottom: 0, zIndex: 999 }}>
+                                        <SearchBox onClose={handleCloseSearch} />
+                                    </div>
+                                )}
+                            </div>
                                 <div style={{ borderRadius: '8px', display: 'flex', gap: '4px', WebkitBoxAlign: 'center', alignItems: 'center', backgroundColor: 'rgb(245, 247, 247)', padding: '4px', boxSizing: 'border-box' }}><kbd data-testid="kbd" color="grey-8" style={{ backgroundColor: 'rgb(228, 234, 235)', border: '0.8px solid rgb(142, 152, 156)', borderRadius: '8px', height: '48px', minWidth: '48px', padding: '16px', display: 'flex', WebkitBoxPack: 'center', justifyContent: 'center', WebkitBoxAlign: 'center', alignItems: 'center', boxSizing: 'border-box', color: 'rgb(39, 51, 57)', textTransform: 'capitalize', fontFamily: '"Space Mono", monospace', fontSize: '20px', lineHeight: '20px', fontWeight: 700 }}>Ctrl</kbd>
-                                    <p style={{ textAlign:'left', fontSize: '20px', lineHeight: '28px', fontWeight: 700, color: 'rgb(180, 190, 192)', fontFamily: '"Nunito Sans", sans-serif', margin: '0px', boxSizing: 'border-box' }}>+</p><kbd data-testid="kbd" color="grey-8" style={{ backgroundColor: 'rgb(228, 234, 235)', border: '0.8px solid rgb(142, 152, 156)', borderRadius: '8px', height: '48px', minWidth: '48px', padding: '16px', display: 'flex', WebkitBoxPack: 'center', justifyContent: 'center', WebkitBoxAlign: 'center', alignItems: 'center', boxSizing: 'border-box', color: 'rgb(39, 51, 57)', textTransform: 'capitalize', fontFamily: '"Space Mono", monospace', fontSize: '20px', lineHeight: '20px', fontWeight: 700 }}>k</kbd>
+                                    <p style={{ textAlign: 'left', fontSize: '20px', lineHeight: '28px', fontWeight: 700, color: 'rgb(180, 190, 192)', fontFamily: '"Nunito Sans", sans-serif', margin: '0px', boxSizing: 'border-box' }}>+</p><kbd data-testid="kbd" color="grey-8" style={{ backgroundColor: 'rgb(228, 234, 235)', border: '0.8px solid rgb(142, 152, 156)', borderRadius: '8px', height: '48px', minWidth: '48px', padding: '16px', display: 'flex', WebkitBoxPack: 'center', justifyContent: 'center', WebkitBoxAlign: 'center', alignItems: 'center', boxSizing: 'border-box', color: 'rgb(39, 51, 57)', textTransform: 'capitalize', fontFamily: '"Space Mono", monospace', fontSize: '20px', lineHeight: '20px', fontWeight: 700 }}>k</kbd>
                                 </div>
                             </div>
                         </div>
@@ -28,7 +100,7 @@ export default function Discover() {
                                 <div style={{ minHeight: 'auto', display: 'flex', WebkitBoxFlex: 2, flexGrow: 2, maxHeight: '100%', position: 'relative', boxSizing: 'border-box' }}><span style={{ boxSizing: 'border-box', display: 'block', overflow: 'hidden', width: 'initial', height: '308px', background: 'none', opacity: 1, border: '0px none rgb(0, 0, 0)', margin: '0px', padding: '0px', position: 'absolute', inset: '0px' }}><img sizes="100vw" srcSet="https://devfolio.co/_next/image?url=%2Fgrants-art.png&w=1440&q=100" src="https://devfolio.co/_next/image?url=%2Fgrants-art.png&w=1440&q=100" decoding="async" data-nimg="fill" style={{ position: 'absolute', inset: '0px', boxSizing: 'border-box', padding: '0px', border: '0px none rgb(0, 0, 0)', margin: 'auto', display: 'block', width: '0px', height: '308px', minWidth: '100%', maxWidth: '100%', minHeight: '100%', maxHeight: '100%', objectFit: 'cover', objectPosition: '50% 100%', borderStyle: 'none' }} /></span></div>
                                 <div direction="column" style={{ display: 'flex', flexDirection: 'column', gap: '16px', margin: '0px 56px 48px', boxSizing: 'border-box' }}>
                                     <div direction="column" style={{ display: 'flex', flexDirection: 'column', gap: '4px', boxSizing: 'border-box' }}>
-                                        <p style={{ textAlign:'left', color: 'rgb(17, 74, 8)', fontSize: '14px', lineHeight: '16px', letterSpacing: '1.68px', fontWeight: 800, fontFamily: 'Montserrat, sans-serif', margin: '0px', textTransform: 'uppercase', boxSizing: 'border-box', textAlign: 'left' }}>Introducing</p>
+                                        <p style={{ textAlign: 'left', color: 'rgb(17, 74, 8)', fontSize: '14px', lineHeight: '16px', letterSpacing: '1.68px', fontWeight: 800, fontFamily: 'Montserrat, sans-serif', margin: '0px', textTransform: 'uppercase', boxSizing: 'border-box', textAlign: 'left' }}>Introducing</p>
                                         <div display="[object Object]" style={{ display: 'block', boxSizing: 'border-box' }}>
                                             <h2 style={{ color: 'rgb(17, 74, 8)', marginLeft: '-4px', fontSize: '48px', lineHeight: '64px', letterSpacing: '-0.48px', fontWeight: 900, fontFamily: '"Nunito Sans", sans-serif', margin: '0px 0px 0px -4px', boxSizing: 'border-box', textAlign: 'left' }}>Grants!</h2>
                                         </div>
@@ -36,7 +108,7 @@ export default function Discover() {
                                             <h2 style={{ color: 'rgb(17, 74, 8)', marginLeft: '-4px', fontSize: '36px', lineHeight: '40px', letterSpacing: '-0.18px', fontWeight: 900, fontFamily: '"Nunito Sans", sans-serif', margin: '0px 0px 0px -4px', boxSizing: 'border-box' }}>Grants!</h2>
                                         </div>
                                     </div>
-                                    <p style={{ textAlign:'left', color: 'rgb(17, 74, 8)', fontSize: '18px', lineHeight: '28px', fontFamily: '"Nunito Sans", sans-serif', fontWeight: 400, margin: '0px', boxSizing: 'border-box', textAlign: 'left' }}>As a builder, it's important that you think beyond conventions and create something extraordinary. And while you're at it, let us fund your project, provide expert guidance, and tell the world about it.</p>
+                                    <p style={{ textAlign: 'left', color: 'rgb(17, 74, 8)', fontSize: '18px', lineHeight: '28px', fontFamily: '"Nunito Sans", sans-serif', fontWeight: 400, margin: '0px', boxSizing: 'border-box', textAlign: 'left' }}>As a builder, it's important that you think beyond conventions and create something extraordinary. And while you're at it, let us fund your project, provide expert guidance, and tell the world about it.</p>
                                 </div>
                             </div>
                         </div>
@@ -72,14 +144,14 @@ export default function Discover() {
                                     <div style={{ marginBottom: '32px', boxSizing: 'border-box' }}>
                                         <ul style={{ position: 'relative', margin: '0px', padding: '8px 0px 8px 16px', listStyleType: 'none', boxSizing: 'border-box' }}>
                                             <li style={{ boxSizing: 'border-box' }}>
-                                                <p style={{ textAlign:'left', fontSize: '14px', lineHeight: '16px', letterSpacing: '1.68px', fontWeight: 800, color: 'rgb(180, 190, 192)', fontFamily: 'Montserrat, sans-serif', margin: '0px', textTransform: 'uppercase', boxSizing: 'border-box', textAlign: 'left' }}>Happening</p>
-                                                <p style={{ textAlign:'left', fontSize: '20px', lineHeight: '28px', fontWeight: 800, color: 'rgb(39, 51, 57)', fontFamily: '"Nunito Sans", sans-serif', margin: '4px 0px 0px', boxSizing: 'border-box', textAlign: 'left' }}>Online</p>
+                                                <p style={{ textAlign: 'left', fontSize: '14px', lineHeight: '16px', letterSpacing: '1.68px', fontWeight: 800, color: 'rgb(180, 190, 192)', fontFamily: 'Montserrat, sans-serif', margin: '0px', textTransform: 'uppercase', boxSizing: 'border-box', textAlign: 'left' }}>Happening</p>
+                                                <p style={{ textAlign: 'left', fontSize: '20px', lineHeight: '28px', fontWeight: 800, color: 'rgb(39, 51, 57)', fontFamily: '"Nunito Sans", sans-serif', margin: '4px 0px 0px', boxSizing: 'border-box', textAlign: 'left' }}>Online</p>
                                             </li>
                                         </ul>
                                     </div>
                                     <div direction="column" style={{ display: 'flex', flexDirection: 'column', gap: '16px', boxSizing: 'border-box' }}>
                                         <div direction="column" style={{ display: 'flex', flexDirection: 'column', padding: '16px', borderRadius: '8px', backgroundColor: 'rgb(240, 244, 255)', boxSizing: 'border-box' }}>
-                                            <p style={{ textAlign:'left', fontSize: '18px', lineHeight: '24px', color: 'rgb(20, 59, 226)', fontWeight: 700, fontFamily: '"Nunito Sans", sans-serif', margin: '0px', boxSizing: 'border-box', textAlign: 'left' }}>Applications are reviewed on a rolling basis fortnightly</p>
+                                            <p style={{ textAlign: 'left', fontSize: '18px', lineHeight: '24px', color: 'rgb(20, 59, 226)', fontWeight: 700, fontFamily: '"Nunito Sans", sans-serif', margin: '0px', boxSizing: 'border-box', textAlign: 'left' }}>Applications are reviewed on a rolling basis fortnightly</p>
                                         </div><button style={{ display: 'flex', WebkitBoxAlign: 'center', alignItems: 'center', WebkitBoxPack: 'center', justifyContent: 'center', boxSizing: 'border-box', width: '100%', height: '60px', padding: '0px 39px', border: '0.8px solid rgb(35, 104, 251)', borderRadius: '8px', margin: '0px', boxShadow: 'rgba(3, 0, 92, 0.05) 0px 1px 4px 0px', backgroundColor: 'rgb(55, 112, 255)', color: 'rgb(255, 255, 255)', fontFamily: '"Nunito Sans", sans-serif', fontSize: '20px', fontWeight: 700, whiteSpace: 'nowrap', outline: 'rgb(255, 255, 255) none 0px', userSelect: 'none', textDecoration: 'none solid rgb(255, 255, 255)', WebkitTapHighlightColor: 'rgba(0, 0, 0, 0)', appearance: 'button', textTransform: 'none', overflow: 'visible', lineHeight: '23px' }}>
                                             <div style={{ display: 'flex', flex: '1 1 0%', WebkitBoxPack: 'center', justifyContent: 'center', boxSizing: 'border-box' }}>Apply now</div>
                                         </button>
@@ -96,16 +168,16 @@ export default function Discover() {
                                 <div style={{ display: 'flex', alignItems: 'flex-end', position: 'absolute', right: '0px', bottom: '0px', left: '0px', boxSizing: 'border-box' }}>
                                     <div direction="column" style={{ backgroundImage: 'linear-gradient(0deg, rgba(39, 51, 57, 0.8) 0%, rgba(39, 51, 57, 0) 100%)', display: 'flex', flexDirection: 'column', flex: '1 1 0%', padding: '32px', boxSizing: 'border-box' }}>
                                         <div direction="column" style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '16px', paddingTop: '64px', boxSizing: 'border-box' }}>
-                                            <p style={{ textAlign:'left', fontSize: '36px', lineHeight: '40px', letterSpacing: '-0.18px', fontWeight: 900, color: 'rgb(255, 255, 255)', fontFamily: '"Nunito Sans", sans-serif', margin: '0px', boxSizing: 'border-box', textAlign: 'left' }}>Need a break from building?</p>
+                                            <p style={{ textAlign: 'left', fontSize: '36px', lineHeight: '40px', letterSpacing: '-0.18px', fontWeight: 900, color: 'rgb(255, 255, 255)', fontFamily: '"Nunito Sans", sans-serif', margin: '0px', boxSizing: 'border-box', textAlign: 'left' }}>Need a break from building?</p>
                                         </div>
-                                        <p style={{ textAlign:'left', fontSize: '18px', lineHeight: '28px', color: 'rgb(255, 255, 255)', fontWeight: 600, fontFamily: '"Nunito Sans", sans-serif', margin: '0px', boxSizing: 'border-box', textAlign: 'left' }}>Indulge in the hottest events happening around the globe and mellow out.</p>
+                                        <p style={{ textAlign: 'left', fontSize: '18px', lineHeight: '28px', color: 'rgb(255, 255, 255)', fontWeight: 600, fontFamily: '"Nunito Sans", sans-serif', margin: '0px', boxSizing: 'border-box', textAlign: 'left' }}>Indulge in the hottest events happening around the globe and mellow out.</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div style={{ gridColumn: '5 / 13', boxSizing: 'border-box' }}>
                             <div elevation="blue-2" style={{ boxSizing: 'border-box', position: 'relative', height: '625.6px', padding: '32px', borderRadius: '16px', backgroundColor: 'rgb(255, 255, 255)', backgroundImage: 'none', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', boxShadow: 'rgba(3, 0, 92, 0.12) 0px 1px 3px 0px, rgba(3, 0, 92, 0.07) 0px 4px 11px 0px' }}>
-                                <p style={{ textAlign:'left', fontSize: '14px', lineHeight: '16px', letterSpacing: '1.68px', fontWeight: 800, color: 'rgb(142, 152, 156)', fontFamily: 'Montserrat, sans-serif', margin: '0px 0px 24px', textTransform: 'uppercase', boxSizing: 'border-box' }}>Hottest events</p>
+                                <p style={{ textAlign: 'left', fontSize: '14px', lineHeight: '16px', letterSpacing: '1.68px', fontWeight: 800, color: 'rgb(142, 152, 156)', fontFamily: 'Montserrat, sans-serif', margin: '0px 0px 24px', textTransform: 'uppercase', boxSizing: 'border-box' }}>Hottest events</p>
                                 <ul direction="column" style={{ display: 'flex', flexDirection: 'column', gap: '24px', margin: '0px', padding: '0px', boxSizing: 'border-box' }}>
                                     <li style={{ listStyleType: 'none', boxSizing: 'border-box' }}><a href="https://www.meetup.com/bangalorejug/events/300546981/?recId=697b8687-a177-4a93-a9ea-3ea95072199a&recSource=keyword_search&searchId=f1ce024a-0660-487c-a6a3-e8cfa801fe7b" target="_blank" rel="noreferrer noopener" style={{ cursor: 'pointer', textDecoration: 'none solid rgb(0, 0, 238)', outline: 'rgb(0, 0, 238) none 0px', imageWidth: '196px', imageHeight: '196px', boxSizing: 'border-box', backgroundColor: 'rgba(0, 0, 0, 0)' }}>
                                         <div direction="[object Object]" style={{ flexDirection: 'row', padding: '24px', boxSizing: 'border-box', alignItems: 'flex-start', borderRadius: '8px', border: '0.8px solid rgb(208, 217, 218)', display: 'flex', gap: '24px' }}>
@@ -118,10 +190,10 @@ export default function Discover() {
                                                             <div name="map-pin-fill" style={{ display: 'block', height: '16px', width: '16px', boxSizing: 'border-box' }}><svg width="1em" height="1em" viewBox="0 0 10 12" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ height: '16px', width: '16px', boxSizing: 'border-box' }}>
                                                                 <path fillRule="evenodd" clipRule="evenodd" d="M9.5 5c0 3.5-4.5 6.5-4.5 6.5S.5 8.5.5 5a4.5 4.5 0 019 0zM7 5a2 2 0 11-4 0 2 2 0 014 0z" fill="currentColor" style={{ boxSizing: 'border-box' }} />
                                                             </svg></div>
-                                                            <p style={{ textAlign:'left', fontSize: '12px', lineHeight: '16px', letterSpacing: '1.44px', fontWeight: 700, color: 'rgb(142, 152, 156)', fontFamily: 'Montserrat, sans-serif', margin: '0px', textTransform: 'uppercase', boxSizing: 'border-box' }}>Bengaluru, India</p>
+                                                            <p style={{ textAlign: 'left', fontSize: '12px', lineHeight: '16px', letterSpacing: '1.44px', fontWeight: 700, color: 'rgb(142, 152, 156)', fontFamily: 'Montserrat, sans-serif', margin: '0px', textTransform: 'uppercase', boxSizing: 'border-box' }}>Bengaluru, India</p>
                                                         </div>
                                                     </div>
-                                                    <p style={{ textAlign:'left', fontSize: '18px', lineHeight: '28px', color: 'rgb(142, 152, 156)', fontWeight: 600, fontFamily: '"Nunito Sans", sans-serif', margin: '0px', boxSizing: 'border-box', textAlign: 'left' }}>Join in person to dive into Spring Boot observability and JET speed application development. </p>
+                                                    <p style={{ textAlign: 'left', fontSize: '18px', lineHeight: '28px', color: 'rgb(142, 152, 156)', fontWeight: 600, fontFamily: '"Nunito Sans", sans-serif', margin: '0px', boxSizing: 'border-box', textAlign: 'left' }}>Join in person to dive into Spring Boot observability and JET speed application development. </p>
                                                 </div>
                                                 <div wrap="wrap" style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', boxSizing: 'border-box' }}>
                                                     <div style={{ display: 'flex', gap: '10px', WebkitBoxAlign: 'center', alignItems: 'center', maxHeight: '48px', padding: '10px 16px', borderWidth: '1.6px', borderStyle: 'solid', borderColor: 'rgb(245, 247, 247)', borderRadius: '16px', backgroundColor: 'rgb(245, 247, 247)', boxSizing: 'border-box' }}>
@@ -129,14 +201,14 @@ export default function Discover() {
                                                             <circle cx={12} cy={12} r={10} style={{ boxSizing: 'border-box' }} />
                                                             <path d="M12 6v6l4 2" style={{ boxSizing: 'border-box' }} />
                                                         </svg></div>
-                                                        <p style={{ textAlign:'left', lineHeight: '24px', userSelect: 'none', fontSize: '12px', letterSpacing: '1.44px', fontWeight: 700, color: 'rgb(56, 71, 78)', fontFamily: 'Montserrat, sans-serif', margin: '0px', textTransform: 'uppercase', boxSizing: 'border-box' }}>10AM - 12PM</p>
+                                                        <p style={{ textAlign: 'left', lineHeight: '24px', userSelect: 'none', fontSize: '12px', letterSpacing: '1.44px', fontWeight: 700, color: 'rgb(56, 71, 78)', fontFamily: 'Montserrat, sans-serif', margin: '0px', textTransform: 'uppercase', boxSizing: 'border-box' }}>10AM - 12PM</p>
                                                     </div>
                                                     <div style={{ display: 'flex', gap: '10px', WebkitBoxAlign: 'center', alignItems: 'center', maxHeight: '48px', padding: '10px 16px', borderWidth: '1.6px', borderStyle: 'solid', borderColor: 'rgb(245, 247, 247)', borderRadius: '16px', backgroundColor: 'rgb(245, 247, 247)', boxSizing: 'border-box' }}>
                                                         <div name="calendar" color="grey-7B" style={{ display: 'block', height: '24px', width: '24px', boxSizing: 'border-box' }}><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" style={{ height: '24px', width: '24px', color: 'rgb(56, 71, 78)', boxSizing: 'border-box' }}>
                                                             <rect x={3} y={4} width={18} height={18} rx={2} ry={2} style={{ boxSizing: 'border-box' }} />
                                                             <path d="M16 2v4M8 2v4M3 10h18" style={{ boxSizing: 'border-box' }} />
                                                         </svg></div>
-                                                        <p style={{ textAlign:'left', lineHeight: '24px', userSelect: 'none', fontSize: '12px', letterSpacing: '1.44px', fontWeight: 700, color: 'rgb(56, 71, 78)', fontFamily: 'Montserrat, sans-serif', margin: '0px', textTransform: 'uppercase', boxSizing: 'border-box' }}>May 11, 2024</p>
+                                                        <p style={{ textAlign: 'left', lineHeight: '24px', userSelect: 'none', fontSize: '12px', letterSpacing: '1.44px', fontWeight: 700, color: 'rgb(56, 71, 78)', fontFamily: 'Montserrat, sans-serif', margin: '0px', textTransform: 'uppercase', boxSizing: 'border-box' }}>May 11, 2024</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -156,10 +228,10 @@ export default function Discover() {
                                                             <div name="map-pin-fill" style={{ display: 'block', height: '16px', width: '16px', boxSizing: 'border-box' }}><svg width="1em" height="1em" viewBox="0 0 10 12" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ height: '16px', width: '16px', boxSizing: 'border-box' }}>
                                                                 <path fillRule="evenodd" clipRule="evenodd" d="M9.5 5c0 3.5-4.5 6.5-4.5 6.5S.5 8.5.5 5a4.5 4.5 0 019 0zM7 5a2 2 0 11-4 0 2 2 0 014 0z" fill="currentColor" style={{ boxSizing: 'border-box' }} />
                                                             </svg></div>
-                                                            <p style={{ textAlign:'left', fontSize: '12px', lineHeight: '16px', letterSpacing: '1.44px', fontWeight: 700, color: 'rgb(142, 152, 156)', fontFamily: 'Montserrat, sans-serif', margin: '0px', textTransform: 'uppercase', boxSizing: 'border-box' }}>Bengaluru, India</p>
+                                                            <p style={{ textAlign: 'left', fontSize: '12px', lineHeight: '16px', letterSpacing: '1.44px', fontWeight: 700, color: 'rgb(142, 152, 156)', fontFamily: 'Montserrat, sans-serif', margin: '0px', textTransform: 'uppercase', boxSizing: 'border-box' }}>Bengaluru, India</p>
                                                         </div>
                                                     </div>
-                                                    <p style={{ textAlign:'left', fontSize: '18px', lineHeight: '28px', color: 'rgb(142, 152, 156)', fontWeight: 600, fontFamily: '"Nunito Sans", sans-serif', margin: '0px', boxSizing: 'border-box', textAlign: 'left' }}>Learn about ReactJS, one of the best libraries to build modern web applications. </p>
+                                                    <p style={{ textAlign: 'left', fontSize: '18px', lineHeight: '28px', color: 'rgb(142, 152, 156)', fontWeight: 600, fontFamily: '"Nunito Sans", sans-serif', margin: '0px', boxSizing: 'border-box', textAlign: 'left' }}>Learn about ReactJS, one of the best libraries to build modern web applications. </p>
                                                 </div>
                                                 <div wrap="wrap" style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', boxSizing: 'border-box' }}>
                                                     <div style={{ display: 'flex', gap: '10px', WebkitBoxAlign: 'center', alignItems: 'center', maxHeight: '48px', padding: '10px 16px', borderWidth: '1.6px', borderStyle: 'solid', borderColor: 'rgb(245, 247, 247)', borderRadius: '16px', backgroundColor: 'rgb(245, 247, 247)', boxSizing: 'border-box' }}>
@@ -167,14 +239,14 @@ export default function Discover() {
                                                             <circle cx={12} cy={12} r={10} style={{ boxSizing: 'border-box' }} />
                                                             <path d="M12 6v6l4 2" style={{ boxSizing: 'border-box' }} />
                                                         </svg></div>
-                                                        <p style={{ textAlign:'left', lineHeight: '24px', userSelect: 'none', fontSize: '12px', letterSpacing: '1.44px', fontWeight: 700, color: 'rgb(56, 71, 78)', fontFamily: 'Montserrat, sans-serif', margin: '0px', textTransform: 'uppercase', boxSizing: 'border-box' }}>2 - 6PM</p>
+                                                        <p style={{ textAlign: 'left', lineHeight: '24px', userSelect: 'none', fontSize: '12px', letterSpacing: '1.44px', fontWeight: 700, color: 'rgb(56, 71, 78)', fontFamily: 'Montserrat, sans-serif', margin: '0px', textTransform: 'uppercase', boxSizing: 'border-box' }}>2 - 6PM</p>
                                                     </div>
                                                     <div style={{ display: 'flex', gap: '10px', WebkitBoxAlign: 'center', alignItems: 'center', maxHeight: '48px', padding: '10px 16px', borderWidth: '1.6px', borderStyle: 'solid', borderColor: 'rgb(245, 247, 247)', borderRadius: '16px', backgroundColor: 'rgb(245, 247, 247)', boxSizing: 'border-box' }}>
                                                         <div name="calendar" color="grey-7B" style={{ display: 'block', height: '24px', width: '24px', boxSizing: 'border-box' }}><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" style={{ height: '24px', width: '24px', color: 'rgb(56, 71, 78)', boxSizing: 'border-box' }}>
                                                             <rect x={3} y={4} width={18} height={18} rx={2} ry={2} style={{ boxSizing: 'border-box' }} />
                                                             <path d="M16 2v4M8 2v4M3 10h18" style={{ boxSizing: 'border-box' }} />
                                                         </svg></div>
-                                                        <p style={{ textAlign:'left', lineHeight: '24px', userSelect: 'none', fontSize: '12px', letterSpacing: '1.44px', fontWeight: 700, color: 'rgb(56, 71, 78)', fontFamily: 'Montserrat, sans-serif', margin: '0px', textTransform: 'uppercase', boxSizing: 'border-box' }}>May 18, 2024</p>
+                                                        <p style={{ textAlign: 'left', lineHeight: '24px', userSelect: 'none', fontSize: '12px', letterSpacing: '1.44px', fontWeight: 700, color: 'rgb(56, 71, 78)', fontFamily: 'Montserrat, sans-serif', margin: '0px', textTransform: 'uppercase', boxSizing: 'border-box' }}>May 18, 2024</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -187,14 +259,14 @@ export default function Discover() {
                 </div>
                 <div style={{ gridColumn: '1 / 9', boxSizing: 'border-box' }}>
                     <div elevation="blue-2" style={{ boxSizing: 'border-box', position: 'relative', height: '588.8px', padding: '32px', borderRadius: '16px', backgroundColor: 'rgb(255, 255, 255)', backgroundImage: 'none', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', boxShadow: 'rgba(3, 0, 92, 0.12) 0px 1px 3px 0px, rgba(3, 0, 92, 0.07) 0px 4px 11px 0px' }}>
-                        <p style={{ textAlign:'left', fontSize: '14px', lineHeight: '16px', letterSpacing: '1.68px', fontWeight: 800, color: 'rgb(142, 152, 156)', fontFamily: 'Montserrat, sans-serif', margin: '0px 0px 24px', textTransform: 'uppercase', boxSizing: 'border-box' }}>Projects Spotlight</p>
+                        <p style={{ textAlign: 'left', fontSize: '14px', lineHeight: '16px', letterSpacing: '1.68px', fontWeight: 800, color: 'rgb(142, 152, 156)', fontFamily: 'Montserrat, sans-serif', margin: '0px 0px 24px', textTransform: 'uppercase', boxSizing: 'border-box' }}>Projects Spotlight</p>
                         <div direction="column" spacing={8} style={{ gap: '8px', display: 'flex', flexDirection: 'column', boxSizing: 'border-box' }}>
                             <div direction="column" style={{ display: 'flex', flexDirection: 'column', boxSizing: 'border-box' }}>
                                 <div style={{ position: 'relative', boxSizing: 'border-box' }}><a href="https://devfolio.co/projects/teleport" style={{ boxSizing: 'border-box', margin: '0px', padding: '0px', textDecoration: 'none solid rgb(0, 0, 238)', display: 'block', backgroundColor: 'rgba(0, 0, 0, 0)', border: '0px none rgb(0, 0, 238)', cursor: 'pointer', outline: 'rgb(0, 0, 238) none 0px', userSelect: 'none', flex: '1 1 0%' }}>
                                     <div direction="row" style={{ display: 'flex', flexDirection: 'row', gap: '8px', boxSizing: 'border-box' }}>
                                         <div style={{ imageHeight: '112px', imageWidth: '112px', position: 'relative', boxSizing: 'border-box', height: '112px', width: '112px', minWidth: '112px', minHeight: '112px', borderRadius: '16px', backgroundColor: 'rgb(245, 247, 247)', border: '0.8px solid rgb(240, 245, 245)', fontFamily: 'Montserrat, sans-serif', overflow: 'hidden' }}>
                                             <div style={{ height: '110.4px', width: '100%', display: 'flex', WebkitBoxAlign: 'center', alignItems: 'center', WebkitBoxPack: 'center', justifyContent: 'center', borderRadius: '6px', backgroundImage: 'url("https://devfolio.co/pattern-1.svg")', backgroundColor: 'rgb(34, 197, 168)', boxSizing: 'border-box' }}>
-                                                <p style={{ textAlign:'left', opacity: '0.64', fontFamily: 'Montserrat, sans-serif', fontSize: '36px', fontWeight: 700, color: 'rgb(39, 51, 57)', margin: '0px', boxSizing: 'border-box' }}>T</p>
+                                                <p style={{ textAlign: 'left', opacity: '0.64', fontFamily: 'Montserrat, sans-serif', fontSize: '36px', fontWeight: 700, color: 'rgb(39, 51, 57)', margin: '0px', boxSizing: 'border-box' }}>T</p>
                                             </div>
                                         </div>
                                         <div direction="row" style={{ display: 'flex', flexDirection: 'row', gap: '8px', WebkitBoxFlex: 1, flexGrow: 1, boxSizing: 'border-box' }}>
@@ -203,7 +275,7 @@ export default function Discover() {
                                                 <div direction="row" style={{ display: 'flex', flexDirection: 'row', gap: '8px', WebkitBoxPack: 'justify', justifyContent: 'space-between', WebkitBoxFlex: 1, flexGrow: 1, boxSizing: 'border-box' }}>
                                                     <div direction="column" style={{ display: 'flex', flexDirection: 'column', gap: '0px', WebkitBoxPack: 'center', justifyContent: 'center', alignItems: 'flex-start', boxSizing: 'border-box' }}>
                                                         <h6 style={{ fontSize: '20px', lineHeight: '28px', fontWeight: 800, color: 'rgb(39, 51, 57)', fontFamily: '"Nunito Sans", sans-serif', margin: '0px', display: '-webkit-box', WebkitLineClamp: 1, WebkitBoxOrient: 'vertical', overflowWrap: 'anywhere', overflow: 'hidden', boxSizing: 'border-box' }}>Teleport</h6>
-                                                        <p style={{ textAlign:'left', lineHeight: '24px', color: 'rgb(92, 104, 109)', fontFamily: '"Nunito Sans", sans-serif', fontSize: '16px', fontWeight: 400, margin: '0px', display: '-webkit-box', WebkitLineClamp: 1, WebkitBoxOrient: 'vertical', overflowWrap: 'anywhere', overflow: 'hidden', boxSizing: 'border-box' }}>A Google meet for files with the convenience of airdrop</p>
+                                                        <p style={{ textAlign: 'left', lineHeight: '24px', color: 'rgb(92, 104, 109)', fontFamily: '"Nunito Sans", sans-serif', fontSize: '16px', fontWeight: 400, margin: '0px', display: '-webkit-box', WebkitLineClamp: 1, WebkitBoxOrient: 'vertical', overflowWrap: 'anywhere', overflow: 'hidden', boxSizing: 'border-box' }}>A Google meet for files with the convenience of airdrop</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -224,7 +296,7 @@ export default function Discover() {
                                     <div direction="row" style={{ display: 'flex', flexDirection: 'row', gap: '8px', boxSizing: 'border-box' }}>
                                         <div style={{ imageHeight: '112px', imageWidth: '112px', position: 'relative', boxSizing: 'border-box', height: '112px', width: '112px', minWidth: '112px', minHeight: '112px', borderRadius: '16px', backgroundColor: 'rgb(245, 247, 247)', border: '0.8px solid rgb(240, 245, 245)', fontFamily: 'Montserrat, sans-serif', overflow: 'hidden' }}>
                                             <div style={{ height: '110.4px', width: '100%', display: 'flex', WebkitBoxAlign: 'center', alignItems: 'center', WebkitBoxPack: 'center', justifyContent: 'center', borderRadius: '6px', backgroundImage: 'url("https://devfolio.co/pattern-4.svg")', backgroundColor: 'rgb(232, 199, 84)', boxSizing: 'border-box' }}>
-                                                <p style={{ textAlign:'left', opacity: '0.64', fontFamily: 'Montserrat, sans-serif', fontSize: '36px', fontWeight: 700, color: 'rgb(39, 51, 57)', margin: '0px', boxSizing: 'border-box' }}>C</p>
+                                                <p style={{ textAlign: 'left', opacity: '0.64', fontFamily: 'Montserrat, sans-serif', fontSize: '36px', fontWeight: 700, color: 'rgb(39, 51, 57)', margin: '0px', boxSizing: 'border-box' }}>C</p>
                                             </div>
                                         </div>
                                         <div direction="row" style={{ display: 'flex', flexDirection: 'row', gap: '8px', WebkitBoxFlex: 1, flexGrow: 1, boxSizing: 'border-box' }}>
@@ -233,7 +305,7 @@ export default function Discover() {
                                                 <div direction="row" style={{ display: 'flex', flexDirection: 'row', gap: '8px', WebkitBoxPack: 'justify', justifyContent: 'space-between', WebkitBoxFlex: 1, flexGrow: 1, boxSizing: 'border-box' }}>
                                                     <div direction="column" style={{ display: 'flex', flexDirection: 'column', gap: '0px', WebkitBoxPack: 'center', justifyContent: 'center', alignItems: 'flex-start', boxSizing: 'border-box' }}>
                                                         <h6 style={{ fontSize: '20px', lineHeight: '28px', fontWeight: 800, color: 'rgb(39, 51, 57)', fontFamily: '"Nunito Sans", sans-serif', margin: '0px', display: '-webkit-box', WebkitLineClamp: 1, WebkitBoxOrient: 'vertical', overflowWrap: 'anywhere', overflow: 'hidden', boxSizing: 'border-box' }}>CricLive</h6>
-                                                        <p style={{ textAlign:'left', lineHeight: '24px', color: 'rgb(92, 104, 109)', fontFamily: '"Nunito Sans", sans-serif', fontSize: '16px', fontWeight: 400, margin: '0px', display: '-webkit-box', WebkitLineClamp: 1, WebkitBoxOrient: 'vertical', overflowWrap: 'anywhere', overflow: 'hidden', boxSizing: 'border-box' }}>Live Cricket Anytime Anywhere</p>
+                                                        <p style={{ textAlign: 'left', lineHeight: '24px', color: 'rgb(92, 104, 109)', fontFamily: '"Nunito Sans", sans-serif', fontSize: '16px', fontWeight: 400, margin: '0px', display: '-webkit-box', WebkitLineClamp: 1, WebkitBoxOrient: 'vertical', overflowWrap: 'anywhere', overflow: 'hidden', boxSizing: 'border-box' }}>Live Cricket Anytime Anywhere</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -254,7 +326,7 @@ export default function Discover() {
                                     <div direction="row" style={{ display: 'flex', flexDirection: 'row', gap: '8px', boxSizing: 'border-box' }}>
                                         <div style={{ imageHeight: '112px', imageWidth: '112px', position: 'relative', boxSizing: 'border-box', height: '112px', width: '112px', minWidth: '112px', minHeight: '112px', borderRadius: '16px', backgroundColor: 'rgb(245, 247, 247)', border: '0.8px solid rgb(240, 245, 245)', fontFamily: 'Montserrat, sans-serif', overflow: 'hidden' }}>
                                             <div style={{ height: '110.4px', width: '100%', display: 'flex', WebkitBoxAlign: 'center', alignItems: 'center', WebkitBoxPack: 'center', justifyContent: 'center', borderRadius: '6px', backgroundImage: 'url("https://devfolio.co/pattern-1.svg")', backgroundColor: 'rgb(167, 170, 13)', boxSizing: 'border-box' }}>
-                                                <p style={{ textAlign:'left', opacity: '0.64', fontFamily: 'Montserrat, sans-serif', fontSize: '36px', fontWeight: 700, color: 'rgb(39, 51, 57)', margin: '0px', boxSizing: 'border-box' }}>H</p>
+                                                <p style={{ textAlign: 'left', opacity: '0.64', fontFamily: 'Montserrat, sans-serif', fontSize: '36px', fontWeight: 700, color: 'rgb(39, 51, 57)', margin: '0px', boxSizing: 'border-box' }}>H</p>
                                             </div>
                                         </div>
                                         <div direction="row" style={{ display: 'flex', flexDirection: 'row', gap: '8px', WebkitBoxFlex: 1, flexGrow: 1, boxSizing: 'border-box' }}>
@@ -265,7 +337,7 @@ export default function Discover() {
                                                 <div direction="row" style={{ display: 'flex', flexDirection: 'row', gap: '8px', WebkitBoxPack: 'justify', justifyContent: 'space-between', WebkitBoxFlex: 1, flexGrow: 1, boxSizing: 'border-box' }}>
                                                     <div direction="column" style={{ display: 'flex', flexDirection: 'column', gap: '0px', WebkitBoxPack: 'center', justifyContent: 'center', alignItems: 'flex-start', boxSizing: 'border-box' }}>
                                                         <h6 style={{ fontSize: '20px', lineHeight: '28px', fontWeight: 800, color: 'rgb(39, 51, 57)', fontFamily: '"Nunito Sans", sans-serif', margin: '0px', display: '-webkit-box', WebkitLineClamp: 1, WebkitBoxOrient: 'vertical', overflowWrap: 'anywhere', overflow: 'hidden', boxSizing: 'border-box' }}>Hermes</h6>
-                                                        <p style={{ textAlign:'left', lineHeight: '24px', color: 'rgb(92, 104, 109)', fontFamily: '"Nunito Sans", sans-serif', fontSize: '16px', fontWeight: 400, margin: '0px', display: '-webkit-box', WebkitLineClamp: 1, WebkitBoxOrient: 'vertical', overflowWrap: 'anywhere', overflow: 'hidden', boxSizing: 'border-box' }}>An Inclusive and Global Gateway to decentralized content creation and exploration using SMS.</p>
+                                                        <p style={{ textAlign: 'left', lineHeight: '24px', color: 'rgb(92, 104, 109)', fontFamily: '"Nunito Sans", sans-serif', fontSize: '16px', fontWeight: 400, margin: '0px', display: '-webkit-box', WebkitLineClamp: 1, WebkitBoxOrient: 'vertical', overflowWrap: 'anywhere', overflow: 'hidden', boxSizing: 'border-box' }}>An Inclusive and Global Gateway to decentralized content creation and exploration using SMS.</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -286,7 +358,7 @@ export default function Discover() {
                                     <div direction="row" style={{ display: 'flex', flexDirection: 'row', gap: '8px', boxSizing: 'border-box' }}>
                                         <div style={{ imageHeight: '112px', imageWidth: '112px', position: 'relative', boxSizing: 'border-box', height: '112px', width: '112px', minWidth: '112px', minHeight: '112px', borderRadius: '16px', backgroundColor: 'rgb(245, 247, 247)', border: '0.8px solid rgb(240, 245, 245)', fontFamily: 'Montserrat, sans-serif', overflow: 'hidden' }}>
                                             <div style={{ height: '110.4px', width: '100%', display: 'flex', WebkitBoxAlign: 'center', alignItems: 'center', WebkitBoxPack: 'center', justifyContent: 'center', borderRadius: '6px', backgroundImage: 'url("https://devfolio.co/pattern-4.svg")', backgroundColor: 'rgb(185, 204, 245)', boxSizing: 'border-box' }}>
-                                                <p style={{ textAlign:'left', opacity: '0.64', fontFamily: 'Montserrat, sans-serif', fontSize: '36px', fontWeight: 700, color: 'rgb(39, 51, 57)', margin: '0px', boxSizing: 'border-box' }}>S</p>
+                                                <p style={{ textAlign: 'left', opacity: '0.64', fontFamily: 'Montserrat, sans-serif', fontSize: '36px', fontWeight: 700, color: 'rgb(39, 51, 57)', margin: '0px', boxSizing: 'border-box' }}>S</p>
                                             </div>
                                         </div>
                                         <div direction="row" style={{ display: 'flex', flexDirection: 'row', gap: '8px', WebkitBoxFlex: 1, flexGrow: 1, boxSizing: 'border-box' }}>
@@ -295,7 +367,7 @@ export default function Discover() {
                                                 <div direction="row" style={{ display: 'flex', flexDirection: 'row', gap: '8px', WebkitBoxPack: 'justify', justifyContent: 'space-between', WebkitBoxFlex: 1, flexGrow: 1, boxSizing: 'border-box' }}>
                                                     <div direction="column" style={{ display: 'flex', flexDirection: 'column', gap: '0px', WebkitBoxPack: 'center', justifyContent: 'center', alignItems: 'flex-start', boxSizing: 'border-box' }}>
                                                         <h6 style={{ fontSize: '20px', lineHeight: '28px', fontWeight: 800, color: 'rgb(39, 51, 57)', fontFamily: '"Nunito Sans", sans-serif', margin: '0px', display: '-webkit-box', WebkitLineClamp: 1, WebkitBoxOrient: 'vertical', overflowWrap: 'anywhere', overflow: 'hidden', boxSizing: 'border-box' }}>StandNote</h6>
-                                                        <p style={{ textAlign:'left', lineHeight: '24px', color: 'rgb(92, 104, 109)', fontFamily: '"Nunito Sans", sans-serif', fontSize: '16px', fontWeight: 400, margin: '0px', display: '-webkit-box', WebkitLineClamp: 1, WebkitBoxOrient: 'vertical', overflowWrap: 'anywhere', overflow: 'hidden', boxSizing: 'border-box' }}>Turning Conversations Into Actions</p>
+                                                        <p style={{ textAlign: 'left', lineHeight: '24px', color: 'rgb(92, 104, 109)', fontFamily: '"Nunito Sans", sans-serif', fontSize: '16px', fontWeight: 400, margin: '0px', display: '-webkit-box', WebkitLineClamp: 1, WebkitBoxOrient: 'vertical', overflowWrap: 'anywhere', overflow: 'hidden', boxSizing: 'border-box' }}>Turning Conversations Into Actions</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -318,10 +390,10 @@ export default function Discover() {
                     <div elevation="blue-2" style={{ boxSizing: 'border-box', position: 'relative', height: '588.8px', padding: '32px', borderRadius: '16px', backgroundColor: 'rgb(55, 112, 255)', backgroundImage: 'none', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', boxShadow: 'rgba(3, 0, 92, 0.12) 0px 1px 3px 0px, rgba(3, 0, 92, 0.07) 0px 4px 11px 0px' }}>
                         <div direction="column" spacing={64} style={{ height: '100%', gap: '64px', display: 'flex', flexDirection: 'column', WebkitBoxPack: 'justify', justifyContent: 'space-between', boxSizing: 'border-box' }}>
                             <div style={{ boxSizing: 'border-box' }}>
-                                <p style={{ textAlign:'left', display: 'block', marginTop: '64px', marginLeft: '-8px', fontSize: '172px', letterSpacing: '-0.86px', opacity: '0.32', lineHeight: '16px', userSelect: 'none', fontFamily: '"Nunito Sans", sans-serif', color: 'rgb(255, 255, 255)', fontWeight: 800, margin: '64px 0px 0px -8px', boxSizing: 'border-box' }}>“</p>
-                                <h3 style={{ fontSize: '36px', lineHeight: '40px', letterSpacing: '-0.18px', color: 'rgb(255, 255, 255)', fontFamily: '"Nunito Sans", sans-serif', fontWeight: 900, margin: '0px', boxSizing: 'border-box' , textAlign:'left' }}>Get better at what you're doing.</h3>
+                                <p style={{ textAlign: 'left', display: 'block', marginTop: '64px', marginLeft: '-8px', fontSize: '172px', letterSpacing: '-0.86px', opacity: '0.32', lineHeight: '16px', userSelect: 'none', fontFamily: '"Nunito Sans", sans-serif', color: 'rgb(255, 255, 255)', fontWeight: 800, margin: '64px 0px 0px -8px', boxSizing: 'border-box' }}>“</p>
+                                <h3 style={{ fontSize: '36px', lineHeight: '40px', letterSpacing: '-0.18px', color: 'rgb(255, 255, 255)', fontFamily: '"Nunito Sans", sans-serif', fontWeight: 900, margin: '0px', boxSizing: 'border-box', textAlign: 'left' }}>Get better at what you're doing.</h3>
                                 <div style={{ marginTop: '8px', boxSizing: 'border-box' }}>
-                                    <p style={{ textAlign:'left', fontSize: '18px', lineHeight: '28px', fontWeight: 600, color: 'rgb(255, 255, 255)', fontFamily: '"Nunito Sans", sans-serif', margin: '0px', boxSizing: 'border-box' , textAlign:'left'}}>- @devfolio</p>
+                                    <p style={{ textAlign: 'left', fontSize: '18px', lineHeight: '28px', fontWeight: 600, color: 'rgb(255, 255, 255)', fontFamily: '"Nunito Sans", sans-serif', margin: '0px', boxSizing: 'border-box', textAlign: 'left' }}>- @devfolio</p>
                                 </div>
                             </div><a href="https://twitter.com/intent/tweet?&text=Get%20better%20at%20what%20you're%20doing. - @devfolio" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', WebkitBoxAlign: 'center', alignItems: 'center', WebkitBoxPack: 'center', justifyContent: 'center', boxSizing: 'border-box', width: '100%', height: '60px', padding: '0px 39px', border: '0.8px solid rgb(2, 128, 208)', borderRadius: '8px', margin: '0px', boxShadow: 'rgba(3, 0, 92, 0.12) 0px 1px 3px 0px, rgba(3, 0, 92, 0.07) 0px 4px 11px 0px', backgroundColor: 'rgb(29, 156, 236)', color: 'rgb(255, 255, 255)', fontFamily: '"Nunito Sans", sans-serif', fontSize: '20px', fontWeight: 600, whiteSpace: 'nowrap', outline: 'rgb(255, 255, 255) none 0px', userSelect: 'none', textDecoration: 'none solid rgb(255, 255, 255)', WebkitTapHighlightColor: 'rgba(0, 0, 0, 0)' }}>
                                 <div name="twitter" strokeWidth={1} style={{ marginRight: '8px', display: 'block', height: '20px', width: '20px', boxSizing: 'border-box' }}><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ height: '20px', width: '20px', strokeWidth: '1px', boxSizing: 'border-box' }}>
@@ -343,9 +415,9 @@ export default function Discover() {
                         <div direction="column" width="100%" style={{ display: 'flex', flexDirection: 'column', padding: '32px', backgroundColor: 'rgb(255, 255, 255)', borderRadius: '16px', boxShadow: 'rgba(3, 0, 92, 0.12) 0px 1px 3px 0px, rgba(3, 0, 92, 0.07) 0px 4px 11px 0px', width: '100%', boxSizing: 'border-box' }}>
                             <div direction="column" style={{ display: 'flex', flexDirection: 'column', boxSizing: 'border-box' }}>
                                 <div direction="column" style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '16px', boxSizing: 'border-box' }}><a href="https://ethbratislava2024.devfolio.co/" target="_blank" rel="noopener noreferrer" style={{ color: 'rgb(55, 112, 255)', fontFamily: '"Nunito Sans", sans-serif', fontWeight: 600, textDecoration: 'none solid rgb(55, 112, 255)', cursor: 'pointer', boxSizing: 'border-box', backgroundColor: 'rgba(0, 0, 0, 0)' }}>
-                                    <h2 style={{ fontSize: '36px', lineHeight: '40px', letterSpacing: '-0.18px', fontWeight: 900, color: 'rgb(39, 51, 57)', fontFamily: '"Nunito Sans", sans-serif', margin: '0px', boxSizing: 'border-box', textAlign:'left' }}>ETHBratislava</h2>
+                                    <h2 style={{ fontSize: '36px', lineHeight: '40px', letterSpacing: '-0.18px', fontWeight: 900, color: 'rgb(39, 51, 57)', fontFamily: '"Nunito Sans", sans-serif', margin: '0px', boxSizing: 'border-box', textAlign: 'left' }}>ETHBratislava</h2>
                                 </a>
-                                    <h3 style={{ fontSize: '18px', lineHeight: '28px', color: 'rgb(92, 104, 109)', fontWeight: 600, fontFamily: '"Nunito Sans", sans-serif', margin: '0px', boxSizing: 'border-box', textAlign:'left' }}>First Ethereum hackathon &amp; conference in Slovakia 🇸🇰</h3>
+                                    <h3 style={{ fontSize: '18px', lineHeight: '28px', color: 'rgb(92, 104, 109)', fontWeight: 600, fontFamily: '"Nunito Sans", sans-serif', margin: '0px', boxSizing: 'border-box', textAlign: 'left' }}>First Ethereum hackathon &amp; conference in Slovakia 🇸🇰</h3>
                                 </div>
                                 <ul style={{ padding: '0px', margin: '0px 0px 16px', listStyleType: 'none', display: 'flex', boxSizing: 'border-box' }}>
                                     <li style={{ boxSizing: 'border-box' }}><a href="https://www.ethbratislava.com/" style={{ padding: '12px', margin: '0px', display: 'flex', WebkitBoxAlign: 'center', alignItems: 'center', WebkitBoxPack: 'center', justifyContent: 'center', border: '0px none rgb(0, 0, 238)', borderRadius: '24px', backgroundColor: 'rgb(240, 244, 255)', cursor: 'pointer', outline: 'rgb(0, 0, 238) none 0px', textDecoration: 'none solid rgb(0, 0, 238)', boxSizing: 'border-box' }}>
@@ -372,19 +444,19 @@ export default function Discover() {
                                 <div style={{ marginBottom: '32px', boxSizing: 'border-box' }}>
                                     <ul style={{ position: 'relative', margin: '0px', padding: '8px 0px 8px 16px', listStyleType: 'none', boxSizing: 'border-box' }}>
                                         <li style={{ boxSizing: 'border-box' }}>
-                                            <p style={{ textAlign:'left', fontSize: '14px', lineHeight: '16px', letterSpacing: '1.68px', fontWeight: 800, color: 'rgb(180, 190, 192)', fontFamily: 'Montserrat, sans-serif', margin: '0px', textTransform: 'uppercase', boxSizing: 'border-box' }}>Runs from</p>
-                                            <p style={{ textAlign:'left', fontSize: '20px', lineHeight: '28px', fontWeight: 800, color: 'rgb(39, 51, 57)', fontFamily: '"Nunito Sans", sans-serif', margin: '4px 0px 0px', boxSizing: 'border-box' }}>May 10 - 11, 2024</p>
+                                            <p style={{ textAlign: 'left', fontSize: '14px', lineHeight: '16px', letterSpacing: '1.68px', fontWeight: 800, color: 'rgb(180, 190, 192)', fontFamily: 'Montserrat, sans-serif', margin: '0px', textTransform: 'uppercase', boxSizing: 'border-box' }}>Runs from</p>
+                                            <p style={{ textAlign: 'left', fontSize: '20px', lineHeight: '28px', fontWeight: 800, color: 'rgb(39, 51, 57)', fontFamily: '"Nunito Sans", sans-serif', margin: '4px 0px 0px', boxSizing: 'border-box' }}>May 10 - 11, 2024</p>
                                         </li>
                                         <li style={{ marginTop: '16px', boxSizing: 'border-box' }}>
-                                            <p style={{ textAlign:'left', fontSize: '14px', textAlign:'left', lineHeight: '16px', letterSpacing: '1.68px', fontWeight: 800, color: 'rgb(180, 190, 192)', fontFamily: 'Montserrat, sans-serif', margin: '0px', textTransform: 'uppercase', boxSizing: 'border-box' }}>Happening</p>
-                                            <p style={{ textAlign:'left', fontSize: '20px', lineHeight: '28px', fontWeight: 800, color: 'rgb(39, 51, 57)', fontFamily: '"Nunito Sans", sans-serif', margin: '4px 0px 0px', boxSizing: 'border-box' }}>Bratislava, Slovakia</p>
+                                            <p style={{ textAlign: 'left', fontSize: '14px', textAlign: 'left', lineHeight: '16px', letterSpacing: '1.68px', fontWeight: 800, color: 'rgb(180, 190, 192)', fontFamily: 'Montserrat, sans-serif', margin: '0px', textTransform: 'uppercase', boxSizing: 'border-box' }}>Happening</p>
+                                            <p style={{ textAlign: 'left', fontSize: '20px', lineHeight: '28px', fontWeight: 800, color: 'rgb(39, 51, 57)', fontFamily: '"Nunito Sans", sans-serif', margin: '4px 0px 0px', boxSizing: 'border-box' }}>Bratislava, Slovakia</p>
                                         </li>
                                     </ul>
                                 </div>
                                 <div direction="column" style={{ display: 'flex', flexDirection: 'column', gap: '16px', boxSizing: 'border-box' }}>
                                     <div direction="column" style={{ display: 'flex', flexDirection: 'column', gap: '8px', padding: '16px', borderRadius: '8px', backgroundColor: 'rgb(240, 244, 255)', boxSizing: 'border-box' }}>
-                                        <p style={{ textAlign:'left', fontSize: '14px', lineHeight: '16px', letterSpacing: '1.68px', fontWeight: 800, color: 'rgb(128, 151, 242)', fontFamily: 'Montserrat, sans-serif', margin: '0px', textTransform: 'uppercase', boxSizing: 'border-box' }}>Applications close in</p>
-                                        <p style={{ textAlign:'left', fontSize: '20px', lineHeight: '28px', fontWeight: 800, color: 'rgb(20, 59, 226)', fontFamily: '"Nunito Sans", sans-serif', margin: '0px', boxSizing: 'border-box' }}>0d:16h:47m</p>
+                                        <p style={{ textAlign: 'left', fontSize: '14px', lineHeight: '16px', letterSpacing: '1.68px', fontWeight: 800, color: 'rgb(128, 151, 242)', fontFamily: 'Montserrat, sans-serif', margin: '0px', textTransform: 'uppercase', boxSizing: 'border-box' }}>Applications close in</p>
+                                        <p style={{ textAlign: 'left', fontSize: '20px', lineHeight: '28px', fontWeight: 800, color: 'rgb(20, 59, 226)', fontFamily: '"Nunito Sans", sans-serif', margin: '0px', boxSizing: 'border-box' }}>0d:16h:47m</p>
                                     </div><button style={{ display: 'flex', WebkitBoxAlign: 'center', alignItems: 'center', WebkitBoxPack: 'center', justifyContent: 'center', boxSizing: 'border-box', width: '100%', height: '60px', padding: '0px 39px', border: '0.8px solid rgb(35, 104, 251)', borderRadius: '8px', margin: '0px', boxShadow: 'rgba(3, 0, 92, 0.05) 0px 1px 4px 0px', backgroundColor: 'rgb(55, 112, 255)', color: 'rgb(255, 255, 255)', fontFamily: '"Nunito Sans", sans-serif', fontSize: '20px', fontWeight: 700, whiteSpace: 'nowrap', outline: 'rgb(255, 255, 255) none 0px', userSelect: 'none', textDecoration: 'none solid rgb(255, 255, 255)', WebkitTapHighlightColor: 'rgba(0, 0, 0, 0)', appearance: 'button', textTransform: 'none', overflow: 'visible', lineHeight: '23px' }}>
                                         <div style={{ display: 'flex', flex: '1 1 0%', WebkitBoxPack: 'center', justifyContent: 'center', boxSizing: 'border-box' }}>Apply now</div>
                                     </button>
@@ -394,9 +466,9 @@ export default function Discover() {
                         <div direction="column" width="100%" style={{ display: 'flex', flexDirection: 'column', padding: '32px', backgroundColor: 'rgb(255, 255, 255)', borderRadius: '16px', boxShadow: 'rgba(3, 0, 92, 0.12) 0px 1px 3px 0px, rgba(3, 0, 92, 0.07) 0px 4px 11px 0px', width: '100%', boxSizing: 'border-box' }}>
                             <div direction="column" style={{ display: 'flex', flexDirection: 'column', boxSizing: 'border-box' }}>
                                 <div direction="column" style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '16px', boxSizing: 'border-box' }}><a href="https://ethprague2024.devfolio.co/" target="_blank" rel="noopener noreferrer" style={{ color: 'rgb(55, 112, 255)', fontFamily: '"Nunito Sans", sans-serif', fontWeight: 600, textDecoration: 'none solid rgb(55, 112, 255)', cursor: 'pointer', boxSizing: 'border-box', backgroundColor: 'rgba(0, 0, 0, 0)' }}>
-                                    <h2 style={{ fontSize: '36px', lineHeight: '40px', letterSpacing: '-0.18px', fontWeight: 900, color: 'rgb(39, 51, 57)', fontFamily: '"Nunito Sans", sans-serif', margin: '0px', boxSizing: 'border-box' , textAlign:'left' }}>ETHPrague 2024</h2>
+                                    <h2 style={{ fontSize: '36px', lineHeight: '40px', letterSpacing: '-0.18px', fontWeight: 900, color: 'rgb(39, 51, 57)', fontFamily: '"Nunito Sans", sans-serif', margin: '0px', boxSizing: 'border-box', textAlign: 'left' }}>ETHPrague 2024</h2>
                                 </a>
-                                    <h3 style={{ fontSize: '18px', lineHeight: '28px', color: 'rgb(92, 104, 109)', fontWeight: 600, fontFamily: '"Nunito Sans", sans-serif', margin: '0px', boxSizing: 'border-box' , textAlign:'left' }}>where cypherpunks meet solarpunk</h3>
+                                    <h3 style={{ fontSize: '18px', lineHeight: '28px', color: 'rgb(92, 104, 109)', fontWeight: 600, fontFamily: '"Nunito Sans", sans-serif', margin: '0px', boxSizing: 'border-box', textAlign: 'left' }}>where cypherpunks meet solarpunk</h3>
                                 </div>
                                 <ul style={{ padding: '0px', margin: '0px 0px 16px', listStyleType: 'none', display: 'flex', boxSizing: 'border-box' }}>
                                     <li style={{ boxSizing: 'border-box' }}><a href="https://ethprague.com" style={{ padding: '12px', margin: '0px', display: 'flex', WebkitBoxAlign: 'center', alignItems: 'center', WebkitBoxPack: 'center', justifyContent: 'center', border: '0px none rgb(0, 0, 238)', borderRadius: '24px', backgroundColor: 'rgb(240, 244, 255)', cursor: 'pointer', outline: 'rgb(0, 0, 238) none 0px', textDecoration: 'none solid rgb(0, 0, 238)', boxSizing: 'border-box' }}>
@@ -423,19 +495,19 @@ export default function Discover() {
                                 <div style={{ marginBottom: '32px', boxSizing: 'border-box' }}>
                                     <ul style={{ position: 'relative', margin: '0px', padding: '8px 0px 8px 16px', listStyleType: 'none', boxSizing: 'border-box' }}>
                                         <li style={{ boxSizing: 'border-box' }}>
-                                            <p style={{ textAlign:'left', fontSize: '14px', lineHeight: '16px', letterSpacing: '1.68px', fontWeight: 800, color: 'rgb(180, 190, 192)', fontFamily: 'Montserrat, sans-serif', margin: '0px', textTransform: 'uppercase', boxSizing: 'border-box' }}>Runs from</p>
-                                            <p style={{ textAlign:'left', textAlign:'left', fontSize: '20px', lineHeight: '28px', fontWeight: 800, color: 'rgb(39, 51, 57)', fontFamily: '"Nunito Sans", sans-serif', margin: '4px 0px 0px', boxSizing: 'border-box' }}>May 31 - Jun 2, 2024</p>
+                                            <p style={{ textAlign: 'left', fontSize: '14px', lineHeight: '16px', letterSpacing: '1.68px', fontWeight: 800, color: 'rgb(180, 190, 192)', fontFamily: 'Montserrat, sans-serif', margin: '0px', textTransform: 'uppercase', boxSizing: 'border-box' }}>Runs from</p>
+                                            <p style={{ textAlign: 'left', textAlign: 'left', fontSize: '20px', lineHeight: '28px', fontWeight: 800, color: 'rgb(39, 51, 57)', fontFamily: '"Nunito Sans", sans-serif', margin: '4px 0px 0px', boxSizing: 'border-box' }}>May 31 - Jun 2, 2024</p>
                                         </li>
                                         <li style={{ marginTop: '16px', boxSizing: 'border-box' }}>
-                                            <p style={{ textAlign:'left', fontSize: '14px', lineHeight: '16px', letterSpacing: '1.68px', fontWeight: 800, color: 'rgb(180, 190, 192)', fontFamily: 'Montserrat, sans-serif', margin: '0px', textTransform: 'uppercase', boxSizing: 'border-box' }}>Happening</p>
-                                            <p style={{ textAlign:'left', fontSize: '20px', lineHeight: '28px', fontWeight: 800, color: 'rgb(39, 51, 57)', fontFamily: '"Nunito Sans", sans-serif', margin: '4px 0px 0px', boxSizing: 'border-box' }}>Prague, Czechia</p>
+                                            <p style={{ textAlign: 'left', fontSize: '14px', lineHeight: '16px', letterSpacing: '1.68px', fontWeight: 800, color: 'rgb(180, 190, 192)', fontFamily: 'Montserrat, sans-serif', margin: '0px', textTransform: 'uppercase', boxSizing: 'border-box' }}>Happening</p>
+                                            <p style={{ textAlign: 'left', fontSize: '20px', lineHeight: '28px', fontWeight: 800, color: 'rgb(39, 51, 57)', fontFamily: '"Nunito Sans", sans-serif', margin: '4px 0px 0px', boxSizing: 'border-box' }}>Prague, Czechia</p>
                                         </li>
                                     </ul>
                                 </div>
                                 <div direction="column" style={{ display: 'flex', flexDirection: 'column', gap: '16px', boxSizing: 'border-box' }}>
                                     <div direction="column" style={{ display: 'flex', flexDirection: 'column', gap: '8px', padding: '16px', borderRadius: '8px', backgroundColor: 'rgb(240, 244, 255)', boxSizing: 'border-box' }}>
-                                        <p style={{ textAlign:'left', fontSize: '14px', lineHeight: '16px', letterSpacing: '1.68px', fontWeight: 800, color: 'rgb(128, 151, 242)', fontFamily: 'Montserrat, sans-serif', margin: '0px', textTransform: 'uppercase', boxSizing: 'border-box' }}>Applications close in</p>
-                                        <p style={{ textAlign:'left', fontSize: '20px', lineHeight: '28px', fontWeight: 800, color: 'rgb(20, 59, 226)', fontFamily: '"Nunito Sans", sans-serif', margin: '0px', boxSizing: 'border-box' }}>8d:23h:17m</p>
+                                        <p style={{ textAlign: 'left', fontSize: '14px', lineHeight: '16px', letterSpacing: '1.68px', fontWeight: 800, color: 'rgb(128, 151, 242)', fontFamily: 'Montserrat, sans-serif', margin: '0px', textTransform: 'uppercase', boxSizing: 'border-box' }}>Applications close in</p>
+                                        <p style={{ textAlign: 'left', fontSize: '20px', lineHeight: '28px', fontWeight: 800, color: 'rgb(20, 59, 226)', fontFamily: '"Nunito Sans", sans-serif', margin: '0px', boxSizing: 'border-box' }}>8d:23h:17m</p>
                                     </div><button style={{ display: 'flex', WebkitBoxAlign: 'center', alignItems: 'center', WebkitBoxPack: 'center', justifyContent: 'center', boxSizing: 'border-box', width: '100%', height: '60px', padding: '0px 39px', border: '0.8px solid rgb(35, 104, 251)', borderRadius: '8px', margin: '0px', boxShadow: 'rgba(3, 0, 92, 0.05) 0px 1px 4px 0px', backgroundColor: 'rgb(55, 112, 255)', color: 'rgb(255, 255, 255)', fontFamily: '"Nunito Sans", sans-serif', fontSize: '20px', fontWeight: 700, whiteSpace: 'nowrap', outline: 'rgb(255, 255, 255) none 0px', userSelect: 'none', textDecoration: 'none solid rgb(255, 255, 255)', WebkitTapHighlightColor: 'rgba(0, 0, 0, 0)', appearance: 'button', textTransform: 'none', overflow: 'visible', lineHeight: '23px' }}>
                                         <div style={{ display: 'flex', flex: '1 1 0%', WebkitBoxPack: 'center', justifyContent: 'center', boxSizing: 'border-box' }}>Apply now</div>
                                     </button>
@@ -445,9 +517,9 @@ export default function Discover() {
                         <div direction="column" width="100%" style={{ display: 'flex', flexDirection: 'column', padding: '32px', backgroundColor: 'rgb(255, 255, 255)', borderRadius: '16px', boxShadow: 'rgba(3, 0, 92, 0.12) 0px 1px 3px 0px, rgba(3, 0, 92, 0.07) 0px 4px 11px 0px', width: '100%', boxSizing: 'border-box' }}>
                             <div direction="column" style={{ display: 'flex', flexDirection: 'column', boxSizing: 'border-box' }}>
                                 <div direction="column" style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '16px', boxSizing: 'border-box' }}><a href="https://sui-overflow.devfolio.co/" target="_blank" rel="noopener noreferrer" style={{ color: 'rgb(55, 112, 255)', fontFamily: '"Nunito Sans", sans-serif', fontWeight: 600, textDecoration: 'none solid rgb(55, 112, 255)', cursor: 'pointer', boxSizing: 'border-box', backgroundColor: 'rgba(0, 0, 0, 0)' }}>
-                                    <h2 style={{ fontSize: '36px', lineHeight: '40px', letterSpacing: '-0.18px', fontWeight: 900, color: 'rgb(39, 51, 57)', fontFamily: '"Nunito Sans", sans-serif', margin: '0px', boxSizing: 'border-box' , textAlign:'left' }}>Sui Overflow</h2>
+                                    <h2 style={{ fontSize: '36px', lineHeight: '40px', letterSpacing: '-0.18px', fontWeight: 900, color: 'rgb(39, 51, 57)', fontFamily: '"Nunito Sans", sans-serif', margin: '0px', boxSizing: 'border-box', textAlign: 'left' }}>Sui Overflow</h2>
                                 </a>
-                                    <h3 style={{ fontSize: '18px', lineHeight: '28px', color: 'rgb(92, 104, 109)', fontWeight: 600, fontFamily: '"Nunito Sans", sans-serif', margin: '0px', boxSizing: 'border-box',textAlign:'left' }}>Sui’s first global virtual hackathon</h3>
+                                    <h3 style={{ fontSize: '18px', lineHeight: '28px', color: 'rgb(92, 104, 109)', fontWeight: 600, fontFamily: '"Nunito Sans", sans-serif', margin: '0px', boxSizing: 'border-box', textAlign: 'left' }}>Sui’s first global virtual hackathon</h3>
                                 </div>
                                 <ul style={{ padding: '0px', margin: '0px 0px 16px', listStyleType: 'none', display: 'flex', boxSizing: 'border-box' }}>
                                     <li style={{ boxSizing: 'border-box' }}><a href="https://sui.io/overflow" style={{ padding: '12px', margin: '0px', display: 'flex', WebkitBoxAlign: 'center', alignItems: 'center', WebkitBoxPack: 'center', justifyContent: 'center', border: '0px none rgb(0, 0, 238)', borderRadius: '24px', backgroundColor: 'rgb(240, 244, 255)', cursor: 'pointer', outline: 'rgb(0, 0, 238) none 0px', textDecoration: 'none solid rgb(0, 0, 238)', boxSizing: 'border-box' }}>
@@ -474,19 +546,19 @@ export default function Discover() {
                                 <div style={{ marginBottom: '32px', boxSizing: 'border-box' }}>
                                     <ul style={{ position: 'relative', margin: '0px', padding: '8px 0px 8px 16px', listStyleType: 'none', boxSizing: 'border-box' }}>
                                         <li style={{ boxSizing: 'border-box' }}>
-                                            <p style={{ textAlign:'left', fontSize: '14px', lineHeight: '16px', letterSpacing: '1.68px', fontWeight: 800, color: 'rgb(180, 190, 192)', fontFamily: 'Montserrat, sans-serif', margin: '0px', textTransform: 'uppercase', boxSizing: 'border-box' }}>Runs from</p>
-                                            <p style={{ textAlign:'left', fontSize: '20px', lineHeight: '28px', fontWeight: 800, color: 'rgb(39, 51, 57)', fontFamily: '"Nunito Sans", sans-serif', margin: '4px 0px 0px', boxSizing: 'border-box' }}>Apr 21 - May 31, 2024</p>
+                                            <p style={{ textAlign: 'left', fontSize: '14px', lineHeight: '16px', letterSpacing: '1.68px', fontWeight: 800, color: 'rgb(180, 190, 192)', fontFamily: 'Montserrat, sans-serif', margin: '0px', textTransform: 'uppercase', boxSizing: 'border-box' }}>Runs from</p>
+                                            <p style={{ textAlign: 'left', fontSize: '20px', lineHeight: '28px', fontWeight: 800, color: 'rgb(39, 51, 57)', fontFamily: '"Nunito Sans", sans-serif', margin: '4px 0px 0px', boxSizing: 'border-box' }}>Apr 21 - May 31, 2024</p>
                                         </li>
                                         <li style={{ marginTop: '16px', boxSizing: 'border-box' }}>
-                                            <p style={{ textAlign:'left', fontSize: '14px', lineHeight: '16px', letterSpacing: '1.68px', fontWeight: 800, color: 'rgb(180, 190, 192)', fontFamily: 'Montserrat, sans-serif', margin: '0px', textTransform: 'uppercase', boxSizing: 'border-box' }}>Happening</p>
-                                            <p style={{ textAlign:'left', fontSize: '20px', lineHeight: '28px', fontWeight: 800, color: 'rgb(39, 51, 57)', fontFamily: '"Nunito Sans", sans-serif', margin: '4px 0px 0px', boxSizing: 'border-box' }}>Online</p>
+                                            <p style={{ textAlign: 'left', fontSize: '14px', lineHeight: '16px', letterSpacing: '1.68px', fontWeight: 800, color: 'rgb(180, 190, 192)', fontFamily: 'Montserrat, sans-serif', margin: '0px', textTransform: 'uppercase', boxSizing: 'border-box' }}>Happening</p>
+                                            <p style={{ textAlign: 'left', fontSize: '20px', lineHeight: '28px', fontWeight: 800, color: 'rgb(39, 51, 57)', fontFamily: '"Nunito Sans", sans-serif', margin: '4px 0px 0px', boxSizing: 'border-box' }}>Online</p>
                                         </li>
                                     </ul>
                                 </div>
                                 <div direction="column" style={{ display: 'flex', flexDirection: 'column', gap: '16px', boxSizing: 'border-box' }}>
                                     <div direction="column" style={{ display: 'flex', flexDirection: 'column', gap: '8px', padding: '16px', borderRadius: '8px', backgroundColor: 'rgb(240, 244, 255)', boxSizing: 'border-box' }}>
-                                        <p style={{ textAlign:'left', fontSize: '14px', lineHeight: '16px', letterSpacing: '1.68px', fontWeight: 800, color: 'rgb(128, 151, 242)', fontFamily: 'Montserrat, sans-serif', margin: '0px', textTransform: 'uppercase', boxSizing: 'border-box' }}>Applications close in</p>
-                                        <p style={{ textAlign:'left', fontSize: '20px', lineHeight: '28px', fontWeight: 800, color: 'rgb(20, 59, 226)', fontFamily: '"Nunito Sans", sans-serif', margin: '0px', boxSizing: 'border-box' }}>21d:1h:47m</p>
+                                        <p style={{ textAlign: 'left', fontSize: '14px', lineHeight: '16px', letterSpacing: '1.68px', fontWeight: 800, color: 'rgb(128, 151, 242)', fontFamily: 'Montserrat, sans-serif', margin: '0px', textTransform: 'uppercase', boxSizing: 'border-box' }}>Applications close in</p>
+                                        <p style={{ textAlign: 'left', fontSize: '20px', lineHeight: '28px', fontWeight: 800, color: 'rgb(20, 59, 226)', fontFamily: '"Nunito Sans", sans-serif', margin: '0px', boxSizing: 'border-box' }}>21d:1h:47m</p>
                                     </div><button style={{ display: 'flex', WebkitBoxAlign: 'center', alignItems: 'center', WebkitBoxPack: 'center', justifyContent: 'center', boxSizing: 'border-box', width: '100%', height: '60px', padding: '0px 39px', border: '0.8px solid rgb(35, 104, 251)', borderRadius: '8px', margin: '0px', boxShadow: 'rgba(3, 0, 92, 0.05) 0px 1px 4px 0px', backgroundColor: 'rgb(55, 112, 255)', color: 'rgb(255, 255, 255)', fontFamily: '"Nunito Sans", sans-serif', fontSize: '20px', fontWeight: 700, whiteSpace: 'nowrap', outline: 'rgb(255, 255, 255) none 0px', userSelect: 'none', textDecoration: 'none solid rgb(255, 255, 255)', WebkitTapHighlightColor: 'rgba(0, 0, 0, 0)', appearance: 'button', textTransform: 'none', overflow: 'visible', lineHeight: '23px' }}>
                                         <div style={{ display: 'flex', flex: '1 1 0%', WebkitBoxPack: 'center', justifyContent: 'center', boxSizing: 'border-box' }}>Apply now</div>
                                     </button>
@@ -497,24 +569,24 @@ export default function Discover() {
                 </div>
                 <div style={{ gridColumn: '1 / 5', boxSizing: 'border-box' }}>
                     <div height="100%" style={{ minHeight: '400px', height: '400px', boxSizing: 'border-box' }}><button elevation="blue-4" style={{ width: '100%', height: '400px', display: 'flex', WebkitBoxPack: 'justify', justifyContent: 'space-between', flexDirection: 'column', overflow: 'hidden', border: '0px none rgb(0, 0, 0)', zIndex: 1, cursor: 'pointer', textAlign: 'left', boxSizing: 'border-box', position: 'relative', padding: '32px', borderRadius: '16px', backgroundColor: 'rgb(255, 255, 255)', backgroundImage: 'none', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', boxShadow: 'rgba(3, 0, 92, 0.1) 0px 9px 18px 0px, rgba(3, 0, 92, 0.03) 0px 1px 7px 0px', appearance: 'button', textTransform: 'none', fontFamily: '"Nunito Sans", sans-serif', fontSize: '16px', lineHeight: '18.4px', margin: '0px' }}>
-                        <p style={{ textAlign:'left', fontSize: '14px', lineHeight: '16px', letterSpacing: '1.68px', fontWeight: 800, color: 'rgb(255, 255, 255)', fontFamily: 'Montserrat, sans-serif', margin: '0px 0px 24px', textTransform: 'uppercase', boxSizing: 'border-box' }}>Builder Spotlight</p><span style={{ boxSizing: 'border-box', display: 'block', overflow: 'hidden', width: 'initial', height: '400px', background: 'none', opacity: 1, border: '0px none rgb(0, 0, 0)', margin: '0px', padding: '0px', position: 'absolute', inset: '0px' }}><img sizes="100vw" srcSet="https://assets.devfolio.co/content/a1f504bee74b4f19be305d409aa4fc16/b849d76b-547e-467a-9ddb-8c8ea077c07c.png
+                        <p style={{ textAlign: 'left', fontSize: '14px', lineHeight: '16px', letterSpacing: '1.68px', fontWeight: 800, color: 'rgb(255, 255, 255)', fontFamily: 'Montserrat, sans-serif', margin: '0px 0px 24px', textTransform: 'uppercase', boxSizing: 'border-box' }}>Builder Spotlight</p><span style={{ boxSizing: 'border-box', display: 'block', overflow: 'hidden', width: 'initial', height: '400px', background: 'none', opacity: 1, border: '0px none rgb(0, 0, 0)', margin: '0px', padding: '0px', position: 'absolute', inset: '0px' }}><img sizes="100vw" srcSet="https://assets.devfolio.co/content/a1f504bee74b4f19be305d409aa4fc16/b849d76b-547e-467a-9ddb-8c8ea077c07c.png
 " src="/_next/image?url=https%3A%2F%2Fassets.devfolio.co%2Fcontent%2Fa1f504bee74b4f19be305d409aa4fc16%2Fb849d76b-547e-467a-9ddb-8c8ea077c07c.png&w=1440&q=75" decoding="async" data-nimg="fill" style={{ zIndex: -1, position: 'absolute', inset: '0px', boxSizing: 'border-box', padding: '0px', border: '0px none rgb(0, 0, 0)', margin: 'auto', display: 'block', width: '0px', height: '400px', minWidth: '100%', maxWidth: '100%', minHeight: '100%', maxHeight: '100%', objectFit: 'cover', objectPosition: '50% 0%', borderStyle: 'none' }} /></span>
-                        <p style={{ textAlign:'left', fontSize: '36px', lineHeight: '40px', letterSpacing: '-0.18px', fontWeight: 900, color: 'rgb(255, 255, 255)', fontFamily: '"Nunito Sans", sans-serif', margin: '0px', boxSizing: 'border-box' }}>Hire Divyanshu🙇🏻‍♂️ ! </p>
+                        <p style={{ textAlign: 'left', fontSize: '36px', lineHeight: '40px', letterSpacing: '-0.18px', fontWeight: 900, color: 'rgb(255, 255, 255)', fontFamily: '"Nunito Sans", sans-serif', margin: '0px', boxSizing: 'border-box' }}>Hire Divyanshu🙇🏻‍♂️ ! </p>
                     </button></div>
                 </div>
                 <div style={{ gridColumn: '5 / 13', boxSizing: 'border-box' }}>
                     <div elevation="blue-2" style={{ boxSizing: 'border-box', position: 'relative', height: '400px', padding: '32px', borderRadius: '16px', backgroundColor: 'rgb(255, 255, 255)', backgroundImage: 'none', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', boxShadow: 'rgba(3, 0, 92, 0.12) 0px 1px 3px 0px, rgba(3, 0, 92, 0.07) 0px 4px 11px 0px' }}>
-                        <p style={{ textAlign:'left', fontSize: '14px', lineHeight: '16px', letterSpacing: '1.68px', fontWeight: 800, color: 'rgb(142, 152, 156)', fontFamily: 'Montserrat, sans-serif', margin: '0px 0px 24px', textTransform: 'uppercase', boxSizing: 'border-box' }}>Thought-Provoking Curated Articles</p>
+                        <p style={{ textAlign: 'left', fontSize: '14px', lineHeight: '16px', letterSpacing: '1.68px', fontWeight: 800, color: 'rgb(142, 152, 156)', fontFamily: 'Montserrat, sans-serif', margin: '0px 0px 24px', textTransform: 'uppercase', boxSizing: 'border-box' }}>Thought-Provoking Curated Articles</p>
                         <ul direction="column" style={{ display: 'flex', flexDirection: 'column', gap: '8px', margin: '0px', padding: '0px', boxSizing: 'border-box' }}>
                             <li style={{ listStyleType: 'none', boxSizing: 'border-box' }}><a href="https://a16z.com/ai-will-save-the-world/" target="_blank" rel="noreferrer noopener" style={{ cursor: 'pointer', textDecoration: 'none solid rgb(0, 0, 238)', outline: 'rgb(0, 0, 238) none 0px', boxSizing: 'border-box', backgroundColor: 'rgba(0, 0, 0, 0)' }}>
                                 <div style={{ padding: '15px', display: 'flex', alignItems: 'flex-start', borderRadius: '8px', backgroundColor: 'rgb(255, 255, 255)', border: '0.8px solid rgb(208, 217, 218)', boxSizing: 'border-box' }}>
                                     <div style={{ imageWidth: '192px', imageHeight: '108px', display: 'flex', marginRight: '16px', height: '108px', width: '192px', boxSizing: 'border-box' }}><img src="https://a16z.com/wp-content/uploads/2023/06/AI-Saves-The-World_Yoast-FB.jpg" alt="" role="presentation" style={{ height: '108px', width: '192px', minWidth: '192px', maxWidth: '100%', objectFit: 'cover', borderRadius: '8px', boxSizing: 'border-box', borderStyle: 'none' }} /></div>
                                     <div direction="column" width="100%" style={{ display: 'flex', flexDirection: 'column', gap: '8px', width: '100%', boxSizing: 'border-box' }}>
                                         <div style={{ boxSizing: 'border-box' }}>
-                                            <h2 style={{ wordBreak: 'break-word', fontSize: '20px', lineHeight: '28px', fontWeight: 800, color: 'rgb(39, 51, 57)', fontFamily: '"Nunito Sans", sans-serif', margin: '0px', boxSizing: 'border-box' , textAlign:'left'}}>Why AI Will Save the World</h2>
-                                            <h3 style={{ wordBreak: 'break-all', lineHeight: '24px', color: 'rgb(92, 104, 109)', fontFamily: '"Nunito Sans", sans-serif', fontSize: '16px', fontWeight: 600, margin: '0px', boxSizing: 'border-box' , textAlign:'left' }}>a16z.com</h3>
+                                            <h2 style={{ wordBreak: 'break-word', fontSize: '20px', lineHeight: '28px', fontWeight: 800, color: 'rgb(39, 51, 57)', fontFamily: '"Nunito Sans", sans-serif', margin: '0px', boxSizing: 'border-box', textAlign: 'left' }}>Why AI Will Save the World</h2>
+                                            <h3 style={{ wordBreak: 'break-all', lineHeight: '24px', color: 'rgb(92, 104, 109)', fontFamily: '"Nunito Sans", sans-serif', fontSize: '16px', fontWeight: 600, margin: '0px', boxSizing: 'border-box', textAlign: 'left' }}>a16z.com</h3>
                                         </div>
-                                        <h4 style={{ lineHeight: '24px', color: 'rgb(39, 51, 57)', fontFamily: '"Nunito Sans", sans-serif', fontSize: '16px', fontWeight: 400, margin: '0px', boxSizing: 'border-box' , textAlign:'left' }}>There's a full-blown moral panic about AI right now. But the real risk is losing the race to global AI technological superiority.</h4>
+                                        <h4 style={{ lineHeight: '24px', color: 'rgb(39, 51, 57)', fontFamily: '"Nunito Sans", sans-serif', fontSize: '16px', fontWeight: 400, margin: '0px', boxSizing: 'border-box', textAlign: 'left' }}>There's a full-blown moral panic about AI right now. But the real risk is losing the race to global AI technological superiority.</h4>
                                     </div>
                                 </div>
                             </a></li>
@@ -523,10 +595,10 @@ export default function Discover() {
                                     <div style={{ imageWidth: '192px', imageHeight: '108px', display: 'flex', marginRight: '16px', height: '108px', width: '192px', boxSizing: 'border-box' }}><img src="https://review.firstround.com/content/images/2024/04/GettyImages-155133090-2.jpg" alt="" role="presentation" style={{ height: '108px', width: '192px', minWidth: '192px', maxWidth: '100%', objectFit: 'cover', borderRadius: '8px', boxSizing: 'border-box', borderStyle: 'none' }} /></div>
                                     <div direction="column" width="100%" style={{ display: 'flex', flexDirection: 'column', gap: '8px', width: '100%', boxSizing: 'border-box' }}>
                                         <div style={{ boxSizing: 'border-box' }}>
-                                            <h2 style={{ wordBreak: 'break-word', fontSize: '20px', lineHeight: '28px', fontWeight: 800, color: 'rgb(39, 51, 57)', fontFamily: '"Nunito Sans", sans-serif', margin: '0px', boxSizing: 'border-box' , textAlign:'left'}}>The Not So Cookie-Cutter Approach to Building</h2>
-                                            <h3 style={{ wordBreak: 'break-all', lineHeight: '24px', color: 'rgb(92, 104, 109)', fontFamily: '"Nunito Sans", sans-serif', fontSize: '16px', fontWeight: 600, margin: '0px', boxSizing: 'border-box' , textAlign:'left' }}>review.firstround.com</h3>
+                                            <h2 style={{ wordBreak: 'break-word', fontSize: '20px', lineHeight: '28px', fontWeight: 800, color: 'rgb(39, 51, 57)', fontFamily: '"Nunito Sans", sans-serif', margin: '0px', boxSizing: 'border-box', textAlign: 'left' }}>The Not So Cookie-Cutter Approach to Building</h2>
+                                            <h3 style={{ wordBreak: 'break-all', lineHeight: '24px', color: 'rgb(92, 104, 109)', fontFamily: '"Nunito Sans", sans-serif', fontSize: '16px', fontWeight: 600, margin: '0px', boxSizing: 'border-box', textAlign: 'left' }}>review.firstround.com</h3>
                                         </div>
-                                        <h4 style={{ lineHeight: '24px', color: 'rgb(39, 51, 57)', fontFamily: '"Nunito Sans", sans-serif', fontSize: '16px', fontWeight: 400, margin: '0px', boxSizing: 'border-box' ,  }}>Wade Foster, founder and CEO of Zapier, shares his contrarian takes on building a billion-dollar company.</h4>
+                                        <h4 style={{ lineHeight: '24px', color: 'rgb(39, 51, 57)', fontFamily: '"Nunito Sans", sans-serif', fontSize: '16px', fontWeight: 400, margin: '0px', boxSizing: 'border-box', }}>Wade Foster, founder and CEO of Zapier, shares his contrarian takes on building a billion-dollar company.</h4>
                                     </div>
                                 </div>
                             </a></li>

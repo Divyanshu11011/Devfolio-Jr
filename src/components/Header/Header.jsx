@@ -1,6 +1,8 @@
 import React from 'react';
-
+import Home from '../../pages/Home';
 const Header = () => {
+
+    
   return (
 <header style={{boxSizing: 'border-box', position: 'relative', zIndex: 100, display: 'flex', WebkitBoxAlign: 'center', alignItems: 'center', padding: '16px 0px', width: '100%', margin: '0px auto', backgroundColor: 'rgb(255, 255, 255)'}}>
     <nav aria-label="navigation" style={{boxSizing: 'border-box', width: '100%'}}>
@@ -36,7 +38,7 @@ const Header = () => {
                             </a></div>
                         <div style={{boxSizing: 'border-box', display: 'flex', padding: '0px 0px 0px 32px', width: '100%'}}>
                             <ul style={{boxSizing: 'border-box', padding: '0px', margin: '0px', listStyleType: 'none', display: 'flex'}}>
-                                <li style={{boxSizing: 'border-box'}}><a href="https://devfolio.co/home" style={{textDecoration: 'none solid rgb(142, 152, 156)', boxSizing: 'border-box', backgroundColor: 'rgba(0, 0, 0, 0)', border: '0px none rgb(142, 152, 156)', cursor: 'pointer', padding: '0px', color: 'rgb(142, 152, 156)', fontFamily: '"Nunito Sans", sans-serif', fontSize: '16px', fontWeight: 700, lineHeight: '24px'}}>Home</a></li>
+                                <li style={{boxSizing: 'border-box'}}><a href="" style={{textDecoration: 'none solid rgb(142, 152, 156)', boxSizing: 'border-box', backgroundColor: 'rgba(0, 0, 0, 0)', border: '0px none rgb(142, 152, 156)', cursor: 'pointer', padding: '0px', color: 'rgb(142, 152, 156)', fontFamily: '"Nunito Sans", sans-serif', fontSize: '16px', fontWeight: 700, lineHeight: '24px'}}>Home</a></li>
                                 <li style={{boxSizing: 'border-box', marginLeft: '16px'}}><a href="https://devfolio.co/blog" style={{textDecoration: 'none solid rgb(142, 152, 156)', boxSizing: 'border-box', backgroundColor: 'rgba(0, 0, 0, 0)', border: '0px none rgb(142, 152, 156)', cursor: 'pointer', padding: '0px', color: 'rgb(142, 152, 156)', fontFamily: '"Nunito Sans", sans-serif', fontSize: '16px', fontWeight: 700, lineHeight: '24px'}}>Blog</a></li>
                             </ul>
                         </div>

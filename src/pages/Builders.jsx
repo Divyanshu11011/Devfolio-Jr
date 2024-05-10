@@ -1,17 +1,94 @@
-import React from "react";
+import React, {useState} from "react";
+import SearchBox from "../SearchBar/SearchBox";
 
 export default function Builders () {
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+
+    const handleSearchClick = () => {
+        setIsSearchOpen(true); // Open the search box
+    };
+
+    const handleCloseSearch = () => {
+        setIsSearchOpen(false); // Close the search box
+    };
+
+
+ 
+
     return (
-        <div style={{padding: '0px 132px', gridTemplateColumns: '76px 76px 76px 76px 76px 76px 76px 76px 76px 76px 76px 76px', marginTop: '32px', display: 'grid', width: '100%', gap: '40px 24px', WebkitBoxPack: 'center', justifyContent: 'center', marginBottom: '32px', boxSizing: 'border-box'}}>
-        <div style={{gridColumn: '1 / -1', boxSizing: 'border-box'}}>
-          <div style={{display: 'flex', gap: '16px', boxSizing: 'border-box'}}>
-            <div style={{padding: '16px', width: '100%', paddingy: '24px', paddingx: '40px', boxSizing: 'border-box', position: 'relative', height: '89.6px', borderRadius: '16px', backgroundColor: 'rgb(255, 255, 255)', boxShadow: 'rgba(0, 0, 0, 0.08) 0px 1px 4px 0px'}}>
-              <div style={{display: 'flex', gap: '16px', WebkitBoxAlign: 'center', alignItems: 'center', boxSizing: 'border-box'}}><button style={{cursor: 'pointer', textAlign: 'left', WebkitBoxAlign: 'center', alignItems: 'center', display: 'flex', borderRadius: '6px', padding: '16px', width: '100%', border: '0.8px solid rgb(208, 217, 218)', backgroundColor: 'rgb(245, 247, 247)', color: 'rgb(142, 152, 156)', fontFamily: '"Nunito Sans", sans-serif', fontSize: '18px', fontWeight: 600, lineHeight: '24px', outline: 'rgb(142, 152, 156) none 0px', transition: 'all 0.16s ease-in 0s', boxSizing: 'border-box', appearance: 'button', textTransform: 'none', overflow: 'visible', margin: '0px'}}>
-                  <div name="search" color="grey-5" style={{display: 'block', height: '24px', width: '24px', marginRight: '8px', boxSizing: 'border-box'}}><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" style={{height: '24px', width: '24px', color: 'rgb(180, 190, 192)', boxSizing: 'border-box'}}>
-                      <circle cx={11} cy={11} r={8} style={{boxSizing: 'border-box'}} />
-                      <path d="M21 21l-4.35-4.35" style={{boxSizing: 'border-box'}} />
-                    </svg></div>Type to begin search, or use the global shortcut
-                </button>
+        
+      <div style={{
+        padding: '0px 132px',
+        
+        display: 'grid',
+        gridTemplateColumns: 'repeat(12, 1fr)',
+        marginTop: '32px',
+        width: '100%',
+        gap: '40px 24px',
+        justifyContent: 'center',
+        marginBottom: '32px',
+        boxSizing: 'border-box'
+    }}>
+<div style={{
+                gridColumn: '1 / -1',
+                boxSizing: 'border-box'
+            }}>
+                <div style={{
+                    display: 'flex',
+                    gap: '16px',
+                    boxSizing: 'border-box'
+                }}>
+                    <div style={{
+                        padding: '16px',
+                        width: '100%',
+                        position: 'relative',
+                        height: '89.6px',
+                        borderRadius: '16px',
+                        backgroundColor: 'rgb(255, 255, 255)',
+                        boxShadow: 'rgba(0, 0, 0, 0.08) 0px 1px 4px 0px',
+                        boxSizing: 'border-box'
+                    }}>
+                       <div style={{
+                            display: 'flex',
+                            gap: '600px',
+                            alignItems: 'center',
+                            boxSizing: 'border-box'
+                        }}>
+              <div style={{ position: "relative" }}>
+                                <button onClick={handleSearchClick} style={{
+                                    cursor: "pointer",
+                                    textAlign: "left",
+                                    display: "flex",
+                                    borderRadius: "6px",
+                                    padding: "16px",
+                                    width: "230%",
+                                    border: "0.8px solid rgb(208, 217, 218)",
+                                    backgroundColor: "rgb(245, 247, 247)",
+                                    color: "rgb(142, 152, 156)",
+                                    fontFamily: '"Nunito Sans", sans-serif',
+                                    fontSize: "18px",
+                                    fontWeight: 600,
+                                    lineHeight: "24px",
+                                    outline: "none",
+                                    transition: "all 0.16s ease-in 0s",
+                                    textTransform: "none",
+                                    overflow: "visible",
+                                    margin: "0px",
+                                    position: "relative",
+                                    zIndex: 1
+                                }}>
+                                    Type to begin search, or use the global shortcut
+                                </button>
+                                {isSearchOpen && (
+                                    <div style={{ position: "fixed", top: 0, left: 0, right: 0, bottom: 0, zIndex: 999 }}>
+                                        <SearchBox onClose={handleCloseSearch} />
+                                    </div>
+                                )}
+                            </div>
+                            
+
+
+
                 <div style={{borderRadius: '8px', display: 'flex', gap: '4px', WebkitBoxAlign: 'center', alignItems: 'center', backgroundColor: 'rgb(245, 247, 247)', padding: '4px', boxSizing: 'border-box'}}><kbd data-testid="kbd" color="grey-8" style={{backgroundColor: 'rgb(228, 234, 235)', border: '0.8px solid rgb(142, 152, 156)', borderRadius: '8px', height: '48px', minWidth: '48px', padding: '16px', display: 'flex', WebkitBoxPack: 'center', justifyContent: 'center', WebkitBoxAlign: 'center', alignItems: 'center', boxSizing: 'border-box', color: 'rgb(39, 51, 57)', textTransform: 'capitalize', fontFamily: '"Space Mono", monospace', fontSize: '20px', lineHeight: '20px', fontWeight: 700}}>Ctrl</kbd>
                   <p style={{fontSize: '20px', lineHeight: '28px', fontWeight: 700, color: 'rgb(180, 190, 192)', fontFamily: '"Nunito Sans", sans-serif', margin: '0px', boxSizing: 'border-box'}}>+</p><kbd data-testid="kbd" color="grey-8" style={{backgroundColor: 'rgb(228, 234, 235)', border: '0.8px solid rgb(142, 152, 156)', borderRadius: '8px', height: '48px', minWidth: '48px', padding: '16px', display: 'flex', WebkitBoxPack: 'center', justifyContent: 'center', WebkitBoxAlign: 'center', alignItems: 'center', boxSizing: 'border-box', color: 'rgb(39, 51, 57)', textTransform: 'capitalize', fontFamily: '"Space Mono", monospace', fontSize: '20px', lineHeight: '20px', fontWeight: 700}}>k</kbd>
                 </div>
@@ -2422,6 +2499,7 @@ export default function Builders () {
           </div>
         </div>
       </div>
-      
+    
     );
+    
 }

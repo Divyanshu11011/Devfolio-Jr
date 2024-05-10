@@ -6,9 +6,11 @@ import Hackathon from './pages/Hackathons';
 import Builders from './pages/Builders';
 import Discover from './pages/Discover';
 import Footer from './components/Footer/Footer';
+import SearchBox from './SearchBar/SearchBox';
 
 function App() {
     const [selectedOption, setSelectedOption] = useState();
+    
 
     const handleOptionChange = (option) => {
         setSelectedOption(option);
