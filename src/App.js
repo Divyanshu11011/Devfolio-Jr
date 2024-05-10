@@ -33,6 +33,7 @@ function App() {
                         size: "medium",
                         iconColor: "white",
                         customIconSrc: "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/svg/google-messages.svg",
+                        iconSize: 40, // Increase the size of the icon
                     },
                     chatWindow: {
                         welcomeMessage: "Ask Anything About Divyanshu !",

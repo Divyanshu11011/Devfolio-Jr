@@ -58,6 +58,7 @@ export default function Discover() {
                         height: '89.6px',
                         borderRadius: '16px',
                         backgroundColor: 'rgb(255, 255, 255)',
+                        
                         boxShadow: 'rgba(0, 0, 0, 0.08) 0px 1px 4px 0px',
                         boxSizing: 'border-box'
                     }}>

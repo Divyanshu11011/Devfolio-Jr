@@ -174,7 +174,7 @@ export default function Footer() {
 </div>
 
     </div>
-    <p style={{lineHeight: '26px', marginTop: '42.72px', boxSizing: 'border-box', color: 'rgb(39, 51, 57)', fontFamily: '"Nunito Sans", sans-serif', fontSize: '16px', fontWeight: 400, margin: '42.72px 0px 0px'}}>©
+    <p style={{lineHeight: '26px', marginTop: '42.72px', boxSizing: 'border-box', color: 'rgb(39, 51, 57)', fontFamily: '"Nunito Sans", sans-serif', fontSize: '16px', fontWeight: 400, margin: '42.72px 0px 0px'}}> Created By Divyanshu With 💓
       {/* */}
       {/* */}
     </p>
