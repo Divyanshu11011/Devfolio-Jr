@@ -1,0 +1,36 @@
+.your-hackathon a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: 'pointer';
+    box-shadow: none;
+    padding: 28px 24px;
+    border: 1.6px solid rgb(179, 206, 255); /* Moved border style here */
+    border-radius: 16px;
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 28px;
+    background-color: rgb(210, 224, 255);
+    color: rgb(55, 112, 255);
+    text-decoration: none;
+    max-height: 88px;
+    width: 100%;
+}
+
+.your-hackathon a:hover {
+    border-color: #3770ff; /* Changes the border color on hover */
+}
+
+.hover-div {
+    display: flex;
+    align-items: center;
+    border: 2px solid transparent; /* Default border, transparent */
+    transition: border-color 0.3s; /* Smooth transition for the border color */
+  }
+  
+  .hover-div:hover {
+    border-color: blue; /* Blue border on hover */
+  }
+  

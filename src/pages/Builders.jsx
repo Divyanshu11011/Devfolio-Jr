@@ -3,6 +3,7 @@ import SearchBox from "../SearchBar/SearchBox";
 
 export default function Builders () {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [hover, setHover] = useState(false);
 
     const handleSearchClick = () => {
         setIsSearchOpen(true); // Open the search box
@@ -30,6 +31,7 @@ export default function Builders () {
  
 
     return (
+      <div style ={{backgroundColor: '#f5f7f7' ,  padding: '20px 0px'} } >
         
       <div style={{
         padding: '0px 132px',
@@ -69,14 +71,15 @@ export default function Builders () {
                             boxSizing: 'border-box'
                         }}>
               <div style={{ position: "relative" }}>
-                                <button onClick={handleSearchClick} style={{
+                                <button onClick={handleSearchClick}  onMouseEnter={() => setHover(true)}
+            onMouseLeave={() => setHover(false)} style={{
                                     cursor: "pointer",
                                     textAlign: "left",
                                     display: "flex",
                                     borderRadius: "6px",
                                     padding: "16px",
                                     width: "230%",
-                                    border: "0.8px solid rgb(208, 217, 218)",
+                                    border: `0.8px solid ${hover ? '#3770ff' : 'rgb(208, 217, 218)'}`,
                                     backgroundColor: "rgb(245, 247, 247)",
                                     color: "rgb(142, 152, 156)",
                                     fontFamily: '"Nunito Sans", sans-serif',
@@ -2512,6 +2515,7 @@ export default function Builders () {
               </a></div>
           </div>
         </div>
+      </div>
       </div>
     
     );

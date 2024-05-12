@@ -2,9 +2,11 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useState , useEffect } from "react";
 import SearchBox from '../SearchBar/SearchBox';
+import './pages.css';
 
 export default function Hackathon() {
     const [isSearchOpen, setIsSearchOpen] = useState(false);
+    const [hover, setHover] = useState(false);
 
     const handleSearchClick = () => {
         setIsSearchOpen(true); // Open the search box
@@ -30,21 +32,24 @@ export default function Hackathon() {
 
     return (
         <>
-
+         <div style ={{backgroundColor: '#f5f7f7' ,  padding: '20px 0px'} } >
             <div style={{ padding: '0px 132px', gridTemplateColumns: '76px 76px 76px 76px 76px 76px 76px 76px 76px 76px 76px 76px', display: 'grid', width: '100%', gap: '40px 24px', WebkitBoxPack: 'center', justifyContent: 'center', marginTop: '32px', marginBottom: '32px', boxSizing: 'border-box' }}>
                 <div style={{ gridColumn: '1 / -1', boxSizing: 'border-box' }}>
                     <div style={{ display: 'flex', gap: '16px', boxSizing: 'border-box' }}>
                         <div style={{ padding: '16px', width: '100%', paddingy: '24px', paddingx: '40px', boxSizing: 'border-box', position: 'relative', height: '89.6px', borderRadius: '16px', backgroundColor: 'rgb(255, 255, 255)', boxShadow: 'rgba(0, 0, 0, 0.08) 0px 1px 4px 0px' }}>
                             <div style={{ display: 'flex', gap: '16px', WebkitBoxAlign: 'center', alignItems: 'center', boxSizing: 'border-box' }}>
                             <div style={{ position: "relative" }}>
-                                <button onClick={handleSearchClick} style={{
+                                <button onClick={handleSearchClick}
+                                 onMouseEnter={() => setHover(true)}
+                                 onMouseLeave={() => setHover(false)}
+                                  style={{
                                     cursor: "pointer",
                                     textAlign: "left",
                                     display: "flex",
                                     borderRadius: "6px",
                                     padding: "16px",
                                     width: "100%",
-                                    border: "0.8px solid rgb(208, 217, 218)",
+                                    border: `0.8px solid ${hover ? '#3770ff' : 'rgb(208, 217, 218)'}`,
                                     backgroundColor: "rgb(245, 247, 247)",
                                     color: "rgb(142, 152, 156)",
                                     fontFamily: '"Nunito Sans", sans-serif',
@@ -72,9 +77,45 @@ export default function Hackathon() {
                                 </div>
                             </div>
                         </div>
-                        <div style={{ display: 'flex', minWidth: '278px', maxWidth: '278px', boxSizing: 'border-box' }}><a href="https://devfolio.co/hackathons/applied" style={{ maxHeight: '88px', width: '100%', display: 'flex', WebkitBoxAlign: 'center', alignItems: 'center', textDecoration: 'none solid rgb(55, 112, 255)', WebkitBoxPack: 'center', justifyContent: 'center', gap: '10px', cursor: 'pointer', boxShadow: 'none', padding: '28px 24px', border: '1.6px solid rgb(179, 206, 255)', borderRadius: '16px', fontFamily: '"Nunito Sans", sans-serif', fontWeight: 700, fontSize: '20px', lineHeight: '28px', background: 'rgb(210, 224, 255) none repeat scroll 0% 0% / auto padding-box border-box', color: 'rgb(55, 112, 255)', boxSizing: 'border-box', backgroundColor: 'rgb(210, 224, 255)' }}>Your hackathons<div name="chevron-right" style={{ display: 'block', height: '24px', width: '24px', boxSizing: 'border-box' }}><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" style={{ height: '24px', width: '24px', boxSizing: 'border-box' }}>
-                            <path d="M9 18l6-6-6-6" style={{ boxSizing: 'border-box' }} />
-                        </svg></div></a></div>
+                        <div className="your-hackathon"
+     style={{ 
+         display: 'flex', 
+         minWidth: '278px', 
+         maxWidth: '278px', 
+         boxSizing: 'border-box' 
+     }}
+>
+    <a href="https://devfolio.co/hackathons/applied" 
+       style={{ 
+           maxHeight: '88px', 
+           width: '100%', 
+           display: 'flex', 
+           alignItems: 'center', 
+           justifyContent: 'center', 
+           gap: '10px', 
+           cursor: 'pointer', 
+           boxShadow: 'none', 
+           padding: '28px 24px', 
+           borderRadius: '16px', 
+           fontFamily: '"Nunito Sans", sans-serif', 
+           fontWeight: 700, 
+           fontSize: '20px', 
+           lineHeight: '28px', 
+           background: 'rgb(210, 224, 255) none repeat scroll 0% 0% / auto padding-box border-box', 
+           color: 'rgb(55, 112, 255)', 
+           backgroundColor: 'rgb(210, 224, 255)', 
+           textDecoration: 'none' 
+       }}
+    >
+        Your hackathons
+        <div name="chevron-right" style={{ display: 'block', height: '24px', width: '24px' }}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+                <path d="M9 18l6-6-6-6" />
+            </svg>
+        </div>
+    </a>
+</div>
+
                     </div>
                 </div>
                 <div style={{ marginTop: '32px', gridColumn: '1 / -1', boxSizing: 'border-box' }}>
@@ -1277,7 +1318,7 @@ export default function Hackathon() {
                             <div height="100%" direction="[object Object]" style={{ flexDirection: 'row', display: 'flex', height: '314.4px', boxSizing: 'border-box' }}>
                                 <div direction="column" style={{ display: 'flex', flexDirection: 'column', flex: '1 1 0%', WebkitBoxPack: 'justify', justifyContent: 'space-between', boxSizing: 'border-box' }}>
                                     <div wrap="[object Object]" height="max-content" style={{ flexWrap: 'nowrap', display: 'flex', WebkitBoxAlign: 'center', alignItems: 'center', gap: '16px', WebkitBoxPack: 'justify', justifyContent: 'space-between', height: '100px', padding: '24px', boxSizing: 'border-box' }}>
-                                        <div style={{ display: 'flex', WebkitBoxAlign: 'center', alignItems: 'center', boxSizing: 'border-box' }}>
+                                        <div className="hover-div" style={{ display: 'flex', WebkitBoxAlign: 'center', alignItems: 'center', boxSizing: 'border-box' }}>
                                             <div direction="column" style={{ display: 'flex', flexDirection: 'column', gap: '8px', boxSizing: 'border-box' }}><a href="https://sui-overflow.devfolio.co/" style={{ color: 'rgb(55, 112, 255)', fontFamily: '"Nunito Sans", sans-serif', fontWeight: 600, textDecoration: 'none solid rgb(55, 112, 255)', cursor: 'pointer', boxSizing: 'border-box', backgroundColor: 'rgba(0, 0, 0, 0)' }}>
                                                 <h3 style={{ wordBreak: 'break-word', fontSize: '24px', lineHeight: '28px', fontWeight: 800, fontFamily: '"Nunito Sans", sans-serif', color: 'rgb(39, 51, 57)', margin: '0px', boxSizing: 'border-box' }}>Sui Overflow</h3>
                                             </a>
@@ -1829,7 +1870,7 @@ export default function Hackathon() {
                     </div>
                 </section>
             </div>
-
+            </div>
         </>
     );
 }
