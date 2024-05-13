@@ -17,12 +17,12 @@ const NavBar = () => {
         let style = { ...styles.button };
         if (selectedOption === option) {
             style = { ...style, background: '#3770ff' }; // Selected state background
-        }
-        if (hoveredOption === option) {
-            style = { ...style, background: 'rgba(55, 112, 255, 0.2)' }; // Hover state background
+        } else if (hoveredOption === option) {
+            style = { ...style, background: 'rgba(55, 112, 255, 0.2)' }; // Hover state background only if not selected
         }
         return style;
     };
+    
 
     const getParagraphStyle = (option) => {
         let style = { ...styles.p };
