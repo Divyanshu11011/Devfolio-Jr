@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './header.css';
 const Header = () => {
     
 
@@ -39,8 +39,8 @@ const Header = () => {
                             </a></div>
                         <div style={{boxSizing: 'border-box', display: 'flex', padding: '0px 0px 0px 32px', width: '100%'}}>
                             <ul style={{boxSizing: 'border-box', padding: '0px', margin: '0px', listStyleType: 'none', display: 'flex'}}>
-                                <li style={{boxSizing: 'border-box'}}><a href="https://portfolio-neon-zeta-31.vercel.app/" target="_blank" style={{textDecoration: 'none solid rgb(142, 152, 156)', boxSizing: 'border-box', backgroundColor: 'rgba(0, 0, 0, 0)', border: '0px none rgb(142, 152, 156)', cursor: 'pointer', padding: '5px', color: 'rgb(142, 152, 156)', fontFamily: '"Nunito Sans", sans-serif', fontSize: '16px', fontWeight: 700, lineHeight: '24px'}}>Portefeuille</a></li>
-                                <li style={{boxSizing: 'border-box'}}><a href="https://auth.geeksforgeeks.org/user/divyanshu1072be21/articles/" target="_blank" style={{textDecoration: 'none solid rgb(142, 152, 156)', boxSizing: 'border-box', backgroundColor: 'rgba(0, 0, 0, 0)', border: '0px none rgb(142, 152, 156)', cursor: 'pointer', padding: '5px', color: 'rgb(142, 152, 156)', fontFamily: '"Nunito Sans", sans-serif', fontSize: '16px', fontWeight: 700, lineHeight: '24px'}}>Articles</a></li>
+                                <li style={{boxSizing: 'border-box'}}><a href="https://portfolio-neon-zeta-31.vercel.app/" target="_blank" style={{textDecoration: 'none solid rgb(142, 152, 156)', boxSizing: 'border-box', backgroundColor: 'rgba(0, 0, 0, 0)', border: '0px none rgb(142, 152, 156)', cursor: 'pointer', padding: '5px', color: 'rgb(142, 152, 156)', fontFamily: '"Nunito Sans", sans-serif', fontSize: '16px', fontWeight: 700, lineHeight: '24px'}}className="one">Portefeuille</a></li>
+                                <li style={{boxSizing: 'border-box'}}><a href="https://auth.geeksforgeeks.org/user/divyanshu1072be21/articles/" target="_blank" style={{textDecoration: 'none solid rgb(142, 152, 156)', boxSizing: 'border-box', backgroundColor: 'rgba(0, 0, 0, 0)', border: '0px none rgb(142, 152, 156)', cursor: 'pointer', padding: '5px', color: 'rgb(142, 152, 156)', fontFamily: '"Nunito Sans", sans-serif', fontSize: '16px', fontWeight: 700, lineHeight: '24px'}} className="one">Articles</a></li>
                                
                                  </ul>
                         </div>
@@ -68,7 +68,7 @@ const Header = () => {
                                 <div style={{position: 'relative', boxSizing: 'border-box'}}><button type="button" aria-haspopup="menu" data-state="closed" style={{position: 'relative', outline: 'rgb(0, 0, 0) none 0px', boxSizing: 'border-box', overflow: 'hidden', cursor: 'pointer', display: 'flex', borderRadius: '40px', gap: '10px', WebkitBoxAlign: 'center', alignItems: 'center', backgroundColor: 'rgba(0, 0, 0, 0)', border: '0.8px solid rgba(0, 0, 0, 0)', padding: '4px 12px 4px 4px', height: '48px', width: 'max-content', appearance: 'button', textTransform: 'none', fontFamily: '"Nunito Sans", sans-serif', fontSize: '16px', lineHeight: '18.4px', margin: '0px'}}>
                                         <div style={{position: 'absolute', width: '100%', height: '46.4px', backgroundColor: 'rgb(7, 19, 26)', opacity: 0, boxSizing: 'border-box'}}></div>
                                         <div style={{outline: 'rgb(0, 0, 0) none 0px', width: '36px', height: '36px', borderRadius: '50%', overflow: 'hidden', boxSizing: 'border-box'}}><img src="https://assets.devfolio.co/assets/avatar@1x.png" alt="Divyanshu011's avatar" style={{width: '36px', height: '36px', maxWidth: '36px', maxHeight: '36px', boxSizing: 'border-box', borderStyle: 'none'}} /></div>
-                                        <p style={{zIndex: 2, userSelect: 'none', fontSize: '18px', lineHeight: '24px', fontWeight: 600, color: 'rgb(39, 51, 57)', fontFamily: '"Nunito Sans", sans-serif', margin: '0px', boxSizing: 'border-box'}}>Divyanshu011</p>
+                                        <p style={{zIndex: 2, userSelect: 'none', fontSize: '18px', lineHeight: '24px', fontWeight: 600, color: 'rgb(39, 51, 57)', fontFamily: '"Nunito Sans", sans-serif', margin: '0px', boxSizing: 'border-box'}} className='nae'>Divyanshu011</p>
                                     </button></div>
                             </div>
                         </div>

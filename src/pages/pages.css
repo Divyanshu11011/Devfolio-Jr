@@ -1,36 +1,75 @@
 .your-hackathon a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    cursor: 'pointer';
-    box-shadow: none;
-    padding: 28px 24px;
-    border: 1.6px solid rgb(179, 206, 255); /* Moved border style here */
-    border-radius: 16px;
-    font-family: 'Nunito Sans', sans-serif;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 28px;
-    background-color: rgb(210, 224, 255);
-    color: rgb(55, 112, 255);
-    text-decoration: none;
-    max-height: 88px;
-    width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: 'pointer';
+  box-shadow: none;
+  padding: 28px 24px;
+  border: 1.6px solid rgb(179, 206, 255); /* Moved border style here */
+  border-radius: 16px;
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 28px;
+  background-color: rgb(210, 224, 255);
+  color: rgb(55, 112, 255);
+  text-decoration: none;
+  max-height: 88px;
+  width: 100%;
 }
 
 .your-hackathon a:hover {
-    border-color: #3770ff; /* Changes the border color on hover */
+  border-color: #3770ff; /* Changes the border color on hover */
 }
 
 .hover-div {
-    display: flex;
-    align-items: center;
-    border: 2px solid transparent; /* Default border, transparent */
-    transition: border-color 0.3s; /* Smooth transition for the border color */
-  }
+  display: flex;
+  align-items: center;
+  border: 2px solid transparent; /* Default border, transparent */
+  transition: border-color 0.3s; /* Smooth transition for the border color */
+}
+
+.hover-div:hover {
+  border-color: blue; /* Blue border on hover */
+}
+
+.huy:hover{
+  border: 2px solid rgb(119, 119, 239) !important;
+}
+.yi:hover{
+  border: 3px solid rgb(119, 119, 239) !important;
+}
+.btnu:hover{
+  background-color: rgb(2, 128, 208) !important;
+}
+.ptu:hover  {
+  position: relative;
+  border: 2px solid rgb(0, 123, 255) !important ;
   
-  .hover-div:hover {
-    border-color: blue; /* Blue border on hover */
-  }
-  
+}
+.ptu:hover h6{
+  color:#3770ff !important;
+}
+.ptu:hover h2{
+  color:#3770ff !important;
+}
+.ptu:hover h3{
+  color:#3770ff !important;
+}
+.zoomimg {
+  overflow: hidden!important;
+  transition: all 0.3s ease-out !important;
+}
+.zoomimg:hover{
+  transform: scale(1.03)!important;
+}
+.btnui:hover{
+background-color: #b0c4f2 !important;
+}
+.ha:hover{
+background-color: rgb(39, 38, 38) !important;
+color: aliceblue !important;
+border:2px solid rgb(96, 96, 201);
+}
+
